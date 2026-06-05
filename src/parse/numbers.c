@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:14:27 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/05 19:53:30 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/05 20:17:03 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char **parse_numbers(int argc, char **argv, int start_index)
 {
 	int arg_count;
 	int i;
+	int count;
 	char **tokens;
 
 	i = 0;
@@ -37,7 +38,15 @@ char **parse_numbers(int argc, char **argv, int start_index)
 	if (start_index >= argc) // no numeric args after start_index
 		return (NULL);
 	if (arg_count == 1 && !argv[start_index][0]) // one numeric argv entry
-		return (ft_split(argv[start_index], ' '));
+	{
+		tokens = ft_split(argv[start_index], ' ');
+		if (!tokens)
+			return (NULL);
+		count = token_count(tokens);
+		if (!validate_nums(tokens, count))
+			return (free_str_array(tokens, count), NULL);
+		return (tokens);
+	}
 	if (arg_count > 1) // more than one numberic argv entry
 	{
 		tokens = malloc((arg_count + 1) * sizeof(char *)); // allocate the char ** array
@@ -51,7 +60,8 @@ char **parse_numbers(int argc, char **argv, int start_index)
 			i++;
 		}
 		tokens[arg_count] = NULL; // set last token to NULL
+		validate_nums(tokens, i);
 		return (tokens);
-	}	
+	}
 	return (NULL);		
 }
