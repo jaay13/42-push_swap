@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:28:46 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/05 18:13:46 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/05 18:49:09 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void config_init(t_config *config)
 {
 	config->num_start = 1;
-	config->strategy = ADAPTIVE;
+	config->strategy = ADAPTIVE; // set adaptive as default strat
 	config->bench = false;
 }
 
