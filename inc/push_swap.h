@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/05 17:54:52 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/05 18:06:46 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_config
 void	stack_init(t_stack *ptr, char name);
 
 /* ---------------	PARSER	--------------- */
+void	parse_input(int argc, char **argv, t_config *config);
 
 /* ---------------	ALGOS --------------- */
 

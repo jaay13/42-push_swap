@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 16:03:29 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/05 16:52:27 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/05 18:04:23 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ int main(int argc, char **argv)
 {
 	t_stack a;  // Create stacks
 	t_stack b;
+	t_config config;
 
 	if (argc == 1)
 		return (1);
 	stack_init(&a, 'a'); // initialize stack a
 	stack_init(&b, 'b'); // init stack b
-	parse_input(argc, argv); // parse to check wether flags are present, string needs to be split, checking correct input, range and dupes
+	parse_input(argc, argv, &config); // parse to check wether flags are present, string needs to be split, checking correct input, range and dupes
 	build_stack(&a, ); // build stack a
 	is_sorted(&a); // check if sorted
 	compute_disorder(&a);	// compute disorder
