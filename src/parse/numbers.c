@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:14:27 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/05 19:27:41 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/05 19:31:29 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char **parse_numbers(int argc, char **argv, int start_index)
 	if (start_index >= argc) // no numeric args after start_index
 		return (NULL);
 	if (arg_count == 1) // one numeric argv entry
-		return (split(argv[start_index], ' '));
+		return (ft_split(argv[start_index], ' '));
 	if (arg_count > 1) // more than one numberic argv entry
 	{
 		tokens = malloc((arg_count + 1) * sizeof(char *));
