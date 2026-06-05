@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/05 15:36:48 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/05 17:54:52 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 # include <stdbool.h> // true, false, readability
 # include <stdlib.h>  // malloc, free, exit
 # include <unistd.h>  // write
+
+enum e_strategy
+{
+	ADAPTIVE = 0,
+	SIMPLE = 1,
+	MEDIUM = 2,
+	COMPLEX = 3
+};
 
 typedef struct s_node // Single Node
 {
@@ -34,7 +42,17 @@ typedef struct s_stack // A stack (a or b) made of linked nodes
 	t_node *bottom; // Pointer to the bottom of the stack
 }	t_stack;
 
+typedef struct s_config
+{
+	int num_start; // first argv that is not a flag
+	enum e_strategy strategy; // sets which strategy is used
+	bool bench; // optional bench mode toggle
+
+} t_config;
+
+
 /* ---------------	STACK	--------------- */
+void	stack_init(t_stack *ptr, char name);
 
 /* ---------------	PARSER	--------------- */
 
