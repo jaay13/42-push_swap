@@ -6,19 +6,20 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 19:35:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/08 12:35:54 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/08 15:06:54 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// check the created char ** for any invalid formats, INT_MAX / INT_MIN, RANGE, DUPES
+// check the created **tokens for any invalid formats, INT_MAX / INT_MIN, RANGE, DUPES
 #include "../inc/push_swap.h"
 
-int token_count(char **tokens) //TODO
+static int token_count(char **tokens) 
 {
 	int count;
 
 	count = 0;
-
+	while (tokens[count])
+		count++;
 	return (count);
 }
 
@@ -30,6 +31,8 @@ bool	validate_nums(char **tokens)
 
 	i = token_count(tokens);
 	nums = malloc(sizeof(int) * i);
+	if (!nums)
+		return (false);
 	i = 0;
 	while (tokens[i])
 	{
