@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:03:24 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/08 17:45:08 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/08 17:49:01 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ static void swap_a(t_stack *a)
 	t_node *node2;
 	t_node *node3;
 
-	if (!a->top || !a->top->next)
+	if (!a->top || !a->top->next)		// checks if stack a is empty, or has only one node
 		return;
 	node1 = a->top;
 	node2 = node1->next;
 	node3 = node2->next;
-	if (node3)
+	if (node3)							// checks if there is more than 2 nodes
 	{
 		node3->prev = node1;
 		node1->next = node3;
@@ -67,7 +67,7 @@ static void swap_a(t_stack *a)
 		a->bottom = node1;
 		node1->next = NULL;
 	}
-	node1->prev = node2;
+	node1->prev = node2;				
 	node2->next = node1;
 	node2->prev = NULL;
 	a->top = node2;
