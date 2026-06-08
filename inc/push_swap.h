@@ -6,14 +6,14 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/05 19:34:20 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/08 17:45:59 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <limits.h>  // INT_MIN, INT_MAX
 # include <stdbool.h> // true, false, readability
 # include <stdlib.h>  // malloc, free, exit
@@ -55,12 +55,19 @@ void	stack_init(t_stack *ptr, char name);
 
 /* ---------------	PARSER	--------------- */
 void	parse_input(int argc, char **argv, t_config *config);
+bool	validate_nums(char **tokens);
 
 /* ---------------	ALGOS --------------- */
 
 /* ---------------	OPERATIONS	--------------- */
+void sa(t_stack *a);
+void sb(t_stack *b);
+void ss(t_stack *a, t_stack *b);
 
 /* ---------------	UTILS	--------------- */
+void error_n_free(char **tokens, int *nums);
+void free_str_array(char **tokens);
+long	ft_atol(const char *str);
 
 /* ---------------	BENCH	--------------- */
 
