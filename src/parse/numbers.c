@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:14:27 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/08 11:56:45 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/08 15:10:36 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char **parse_numbers(int argc, char **argv, int start_index)
 	arg_count = argc - start_index;
 	if (start_index >= argc) // no numeric args after start_index
 		return (NULL);
-	if (arg_count == 1 && !argv[start_index][0]) // one numeric argv entry
+	if (arg_count == 1) // one numeric argv entry
 	{
 		tokens = ft_split(argv[start_index], ' ');
 		if (!tokens)
