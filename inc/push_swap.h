@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/09 15:06:11 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/09 15:17:05 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	stack_init(t_stack *ptr, char name);
 /* ---------------	PARSER	--------------- */
 void	parse_input(int argc, char **argv, t_config *config);
 bool	validate_nums(char **tokens);
+int		parse_flags(char *arg, t_config *config);
+char	**parse_numbers(int argc, char **argv, int start_index);
 
 /* ---------------	ALGOS --------------- */
 
