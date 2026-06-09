@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:28:46 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/09 15:29:53 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/09 22:47:05 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void config_init(t_config *config)
 	config->bench = false;
 	config->tokens = NULL;
 	config->count = 0;
+	config->disorder = 0.0f;
 }
 
 void	parse_input(int argc, char **argv, t_config *config)
