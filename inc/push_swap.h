@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/08 18:17:44 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/09 15:06:11 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
-# include <limits.h>  // INT_MIN, INT_MAX
-# include <stdbool.h> // true, false, readability
-# include <stdlib.h>  // malloc, free, exit
-# include <unistd.h>  // write
+# include <limits.h>  			// INT_MIN, INT_MAX
+# include <stdbool.h> 			// true, false, readability
+# include <stdlib.h>  			// malloc, free, exit
+# include <unistd.h>  			// write
 
 enum	e_strategy
 {
@@ -27,27 +27,26 @@ enum	e_strategy
 	COMPLEX = 3
 };
 
-typedef struct s_node // Single Node
+typedef struct s_node 			// Single Node
 {
-	int value;           // Value of a node, e.g.: 42
-	struct s_node *next; // Pointer to the next node
-	struct s_node *prev; // Pointer to previous node
+	int value;         			// Value of a node, e.g.: 42
+	struct s_node *next; 		// Pointer to the next node
+	struct s_node *prev; 		// Pointer to previous node
 }		t_node;
 
-typedef struct s_stack // A stack (a or b) made of linked nodes
+typedef struct s_stack 			// A stack (a or b) made of linked nodes
 {
-	char name;      // a or b
-	int size;       // How many nodes are inside
-	t_node *top;    // Pointer to the top of the stack
-	t_node *bottom; // Pointer to the bottom of the stack
+	char name;      			// a or b
+	int size;       			// How many nodes are inside
+	t_node *top;    			// Pointer to the top of the stack
+	t_node *bottom; 			// Pointer to the bottom of the stack
 }		t_stack;
 
 typedef struct s_config
 {
-	int num_start;            // first argv that is not a flag
-	enum e_strategy strategy; // sets which strategy is used
-	bool bench;               // optional bench mode toggle
-
+	int num_start;            	// first argv that is not a flag
+	enum e_strategy strategy; 	// sets which strategy is used
+	bool bench;               	// optional bench mode toggle
 }		t_config;
 
 /* ---------------	STACK	--------------- */
@@ -60,15 +59,21 @@ bool	validate_nums(char **tokens);
 /* ---------------	ALGOS --------------- */
 
 /* ---------------	OPERATIONS	--------------- */
-void sa(t_stack *a);
-void sb(t_stack *b);
-void ss(t_stack *a, t_stack *b);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
 /* ---------------	UTILS	--------------- */
-void error_n_free(char **tokens, int *nums);
-void free_str_array(char **tokens);
+void	error_n_free(char **tokens, int *nums);
+void	free_str_array(char **tokens);
 long	ft_atol(const char *str);
 
 /* ---------------	BENCH	--------------- */
