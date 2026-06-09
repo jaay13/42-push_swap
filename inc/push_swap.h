@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/09 22:33:42 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/09 23:09:54 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_config
 {
 	int num_start;            	// first argv that is not a flag
 	enum e_strategy strategy; 	// sets which strategy is used
+	bool strategy_picked;		// bool to know if there where explicit flags 
 	bool bench;               	// optional bench mode toggle
 	char **tokens;				// store the created tokens from parser
 	int count;					// how many were created
