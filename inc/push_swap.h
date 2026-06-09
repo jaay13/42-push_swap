@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/09 15:22:07 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/09 22:33:42 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,19 @@ typedef struct s_config
 	bool bench;               	// optional bench mode toggle
 	char **tokens;				// store the created tokens from parser
 	int count;					// how many were created
+	float disorder;				// disorder metric for stack a
 }		t_config;
 
 /* ---------------	STACK	--------------- */
-void	stack_init(t_stack *ptr, char name);
+void	stack_init(t_stack *stack, char name);
+void	build_stack(t_stack *stack, t_config *config);
+void	append_node(t_stack *stack, t_node *node);
 
 /* ---------------	PARSER	--------------- */
 void	parse_input(int argc, char **argv, t_config *config);
-bool	validate_nums(char **tokens);
 int		parse_flags(char *arg, t_config *config);
 char	**parse_numbers(int argc, char **argv, int start_index);
+bool	validate_nums(char **tokens);
 
 /* ---------------	ALGOS --------------- */
 
@@ -81,5 +84,6 @@ void	free_str_array(char **tokens);
 long	ft_atol(const char *str);
 
 /* ---------------	BENCH	--------------- */
+void	compute_disorder(t_stack *a, t_config *config);
 
 #endif
