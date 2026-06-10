@@ -32,7 +32,7 @@ static void sort_three(t_stack *a)
 	middle = a->top->next->value;
 	bottom = a->bottom->value;
 	if (top < bottom && middle < bottom) 			// is bottom the biggest?
-		sa(a);
+		sa(a);										// does work because the other option e.g 1,2,3 is already filtered out by disorder 0
 	else if (top < middle && middle > bottom) 		// is middle the biggest?
 	{
 		rra(a);
