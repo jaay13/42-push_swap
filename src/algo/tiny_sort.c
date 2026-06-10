@@ -39,7 +39,7 @@ static void sort_three(t_stack *a)
 		if (a->top->value > a->top->next->value) 	// updated top > middle
 			sa(a);
 	}
-	else // top is the biggest
+	else 											// top is the biggest
 	{
 		ra(a);
 		if (a->top->value > a->top->next->value) 	// updated top > middle
