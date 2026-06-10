@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:14:27 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 19:14:30 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 19:47:28 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**parse_numbers(int argc, char **argv, int start_index)
 		if (!tokens)
 			return (NULL);
 		if (!validate_nums(tokens)) 							// check if created tokens are valid
-			return (free_str_array(tokens), NULL); 				// parse numbers owns tokens so it needs to free before returning
+			return (NULL);
 		return (tokens);
 	}
 	if (arg_count > 1) 											// more than one numberic argv entry
@@ -47,7 +47,7 @@ char	**parse_numbers(int argc, char **argv, int start_index)
 		}
 		tokens[arg_count] = NULL;   							// NULL-terminate
 		if (!validate_nums(tokens)) 							// check if valid
-			return (free_str_array(tokens), NULL); 
+			return (NULL); 
 		return (tokens);
 	}
 	return (NULL);
