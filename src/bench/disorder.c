@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 22:10:35 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 10:51:44 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 13:49:55 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	compute_disorder(t_stack *a, t_config *config)
 
 void	strategy_picker(t_config *config)
 {
-	if (config->strategy_picked == true)
+	if (config->strategy == ADAPTIVE)
 	{
 		if (config->disorder < 0.2f)
 			config->strategy = SIMPLE;
