@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 22:10:35 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/09 22:42:30 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 10:50:40 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,17 @@ void	compute_disorder(t_stack *a, t_config *config)
 	config->disorder = (float)mistakes/ total_pairs;
 	if (config->disorder == 0.0f)							// check if disorder 0 (fully sorted), exit
 		exit(0);
+}
+
+void	strategy_picker(t_config *config)
+{
+	if (config->strategy_picked == true)
+	{
+		if (config->disorder < 0.2)
+			config->strategy = SIMPLE;
+		else if (config->disorder >= 0.2 && config->disorder < 0.5)
+			config->strategy = MEDIUM;
+		else
+			config->strategy = COMPLEX;
+	}
 }
