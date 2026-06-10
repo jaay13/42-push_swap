@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 16:46:41 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 18:31:08 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_config
 void	stack_init(t_stack *stack, char name);
 void	build_stack(t_stack *stack, t_config *config);
 void	append_node(t_stack *stack, t_node *node);
+void	bring_min_to_top_of(t_stack *a);
 void	free_stack(t_stack *stack);
 
 /* ---------------	PARSER	--------------- */
