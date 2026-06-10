@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 14:00:30 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 16:46:41 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_config
 void	stack_init(t_stack *stack, char name);
 void	build_stack(t_stack *stack, t_config *config);
 void	append_node(t_stack *stack, t_node *node);
+void	free_stack(t_stack *stack);
 
 /* ---------------	PARSER	--------------- */
 void	parse_input(int argc, char **argv, t_config *config);
@@ -64,7 +65,7 @@ char	**parse_numbers(int argc, char **argv, int start_index);
 bool	validate_nums(char **tokens);
 
 /* ---------------	ALGOS --------------- */
-void	sort_with_algo(t_stack *a, t_stack *b, t_config *config);
+void	choose_algo(t_stack *a, t_stack *b, t_config *config);
 void	strategy_picker(t_config *config);
 
 /* ---------------	OPERATIONS	--------------- */
