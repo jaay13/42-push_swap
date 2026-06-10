@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:49:57 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/09 14:12:31 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 19:22:02 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,16 @@ static void	push(t_stack *src, t_stack *dst);
 void	pa(t_stack *a, t_stack *b)
 {
 	push(b, a);
+	a->size++;
+	b->size--;
 	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack *a, t_stack *b)
 {
 	push(a, b);
+	a->size--;
+	b->size++;
 	write(1, "pb\n", 3);
 }
 
