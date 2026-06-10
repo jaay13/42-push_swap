@@ -6,8 +6,11 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:11 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 13:54:12 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 14:03:30 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void	complex_sort(t_stack *a, t_stack *b)
+{}
