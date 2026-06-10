@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/09 23:09:54 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 14:00:30 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ typedef struct s_config
 {
 	int num_start;            	// first argv that is not a flag
 	enum e_strategy strategy; 	// sets which strategy is used
-	bool strategy_picked;		// bool to know if there where explicit flags 
 	bool bench;               	// optional bench mode toggle
 	char **tokens;				// store the created tokens from parser
 	int count;					// how many were created
@@ -65,6 +64,8 @@ char	**parse_numbers(int argc, char **argv, int start_index);
 bool	validate_nums(char **tokens);
 
 /* ---------------	ALGOS --------------- */
+void	sort_with_algo(t_stack *a, t_stack *b, t_config *config);
+void	strategy_picker(t_config *config);
 
 /* ---------------	OPERATIONS	--------------- */
 void	sa(t_stack *a);
