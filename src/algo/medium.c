@@ -6,11 +6,14 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 14:03:22 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 19:12:49 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 void	medium_sort(t_stack *a, t_stack *b)
-{}
+{
+	(void)a;
+	(void)b;
+}
