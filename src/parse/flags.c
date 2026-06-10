@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:13:14 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 13:59:50 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 19:52:50 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	parse_flags(char *arg, t_config *config)
 	int is_flag;
 
 	is_flag = 0;
+
+	// TODO: fix bug, that multipe flags are being accepted e.g. ./push_swap --simple --medium 5 2 11 is not valid
 	if (ft_strncmp(arg, "--simple", 9) == 0 && arg[8] == '\0')	// compare the flag to "--simple" if they match strncmp returns 0, 9 characers because 8 + \0
 	{
 		config->strategy = SIMPLE;
