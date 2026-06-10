@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 18:42:17 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 18:45:53 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ bool	validate_nums(char **tokens);
 void	choose_algo(t_stack *a, t_stack *b, t_config *config);
 void	strategy_picker(t_config *config);
 void	sort_three(t_stack *a);
+void	simple_sort(t_stack *a, t_stack *b);
+
 
 /* ---------------	OPERATIONS	--------------- */
 void	sa(t_stack *a);
