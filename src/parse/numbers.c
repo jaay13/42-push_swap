@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:14:27 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/08 15:51:27 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 19:13:08 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	**parse_numbers(int argc, char **argv, int start_index)
 {
 	int		arg_count;
 	int		i;
-	int		count;
 	char	**tokens;
 
 	i = 0;
