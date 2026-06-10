@@ -6,13 +6,13 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:04:18 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 13:57:02 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 14:09:27 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	sort_with_algo(t_stack *a, t_stack *b, t_config *config)
+void	choose_algo(t_stack *a, t_stack *b, t_config *config)
 {
 	if (a->size <= 5)
 		tiny_sort(a, b);
