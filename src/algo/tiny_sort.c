@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:17:43 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 16:30:59 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 17:58:39 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../inc/push_swap.h"
 
 static void	sort_three(t_stack *a);
-static void	sort_five(t_stack *a, t_stack *b);
+static void	sort_four_five(t_stack *a, t_stack *b);
 
 void	tiny_sort(t_stack *a, t_stack *b)
 {
@@ -22,8 +22,8 @@ void	tiny_sort(t_stack *a, t_stack *b)
 		sa(a);
 	else if (a->size == 3)
 		sort_three(a);
-	else if (a->size == 5)
-		sort_five(a, b);
+	else if (a->size == 4 || a->size == 5)
+		sort_four_five(a, b);
 }
 
 static void	sort_three(t_stack *a)
@@ -79,15 +79,16 @@ static void	bring_min_to_top_of(t_stack *a)
 			rra(a);										// rra as min value is closer to the bottom
 }
 
-static void	sort_five(t_stack *a, t_stack *b)
+static void	sort_four_five(t_stack *a, t_stack *b)
 {
-	bring_min_to_top_of(a);						
-	pb(a, b);											// push smallest value to stack b
-	bring_min_to_top_of(a);
-	pb(a, b);
+	while (a->size > 3)
+	{
+		bring_min_to_top_of(a);						
+		pb(a, b);										// push smallest value to stack b
+	}
 	sort_three(a);
-	pa(a , b);											// push them back to a
-	pa(a, b);
+	while (b->size > 0)
+		pa(a, b);										// push them back to a
 }
 
 
