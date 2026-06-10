@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:17:43 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 18:56:09 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 18:57:45 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	tiny_sort(t_stack *a, t_stack *b)
 		sa(a);
 	else if (a->size == 3)
 		sort_three(a);
-	else if (a->size == 4 || a->size == 5)
+	else if (a->size == 4 || a->size == 5)				// prevents using a medium, complex algo on low stack size
 		simple_sort(a, b);
 }
 
