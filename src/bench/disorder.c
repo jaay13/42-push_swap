@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 22:10:35 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 10:50:40 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 10:51:44 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	strategy_picker(t_config *config)
 {
 	if (config->strategy_picked == true)
 	{
-		if (config->disorder < 0.2)
+		if (config->disorder < 0.2f)
 			config->strategy = SIMPLE;
-		else if (config->disorder >= 0.2 && config->disorder < 0.5)
+		else if (config->disorder >= 0.2f && config->disorder < 0.5f)
 			config->strategy = MEDIUM;
 		else
 			config->strategy = COMPLEX;
