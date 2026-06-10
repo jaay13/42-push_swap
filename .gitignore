@@ -55,4 +55,7 @@ dkms.conf
 *.dwo
 
 other/
-docs/
+docs/info.txt
+docs/project-map.md
+docs/project-map.pdf
+docs/tasks.txt
