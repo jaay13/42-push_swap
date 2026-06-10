@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:17:43 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 18:35:49 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 18:46:21 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "../inc/push_swap.h"
 
 void	sort_three(t_stack *a);
-static void	sort_four_five(t_stack *a, t_stack *b);
 
 void	tiny_sort(t_stack *a, t_stack *b)
 {
@@ -22,8 +21,6 @@ void	tiny_sort(t_stack *a, t_stack *b)
 		sa(a);
 	else if (a->size == 3)
 		sort_three(a);
-	else if (a->size == 4 || a->size == 5)
-		sort_four_five(a, b);
 }
 
 void	sort_three(t_stack *a)
@@ -50,17 +47,3 @@ void	sort_three(t_stack *a)
 			sa(a);
 	}
 }
-
-static void	sort_four_five(t_stack *a, t_stack *b)
-{
-	while (a->size > 3)
-	{
-		bring_min_to_top_of(a);						
-		pb(a, b);										// push smallest value to stack b
-	}
-	sort_three(a);
-	while (b->size > 0)
-		pa(a, b);										// push them back to a
-}
-
-
