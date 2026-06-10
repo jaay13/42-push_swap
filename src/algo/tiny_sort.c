@@ -6,14 +6,14 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:17:43 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 18:25:51 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/10 18:35:49 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../inc/push_swap.h"
 
-static void	sort_three(t_stack *a);
+void	sort_three(t_stack *a);
 static void	sort_four_five(t_stack *a, t_stack *b);
 
 void	tiny_sort(t_stack *a, t_stack *b)
@@ -26,7 +26,7 @@ void	tiny_sort(t_stack *a, t_stack *b)
 		sort_four_five(a, b);
 }
 
-static void	sort_three(t_stack *a)
+void	sort_three(t_stack *a)
 {
 	int	top;
 	int	middle;
