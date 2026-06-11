@@ -336,7 +336,7 @@ conclusion:
 
 Many test seem to work correctly but there are some problems to fix:
 
-40. accepting conflicting flags (multiple flags e.g. --simplex + --medium)
+40. accepting conflicting flags (multiple flags e.g. --simplex + --medium) DONE
 27. Implement bench (Todo)
 11. 12. 13. Implement medium, complex (Todo)
 2. 7. 8. forcing flags on less or equal 5 numbers ignores the flags and uses tiny_sort (FIX)
