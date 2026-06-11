@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 19:15:44 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/11 14:14:08 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ int 	repetition_error(long nbr, int *nums, int i);
 
 /* ---------------	BENCH	--------------- */
 void	compute_disorder(t_stack *a, t_config *config);
+void 	print_bench(t_config *config);
+
 
 #endif
