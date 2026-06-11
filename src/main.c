@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 16:03:29 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 14:09:16 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/11 15:15:11 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int main(int argc, char **argv)
 	compute_disorder(&a, &config);				// compute disorder, check if sorted (disorder 0)
 	strategy_picker(&config);					// set either forced strategy or adaptive default based on disorder
 	choose_algo(&a, &b, &config);				// run algo
-	// if (bench flag is present)
-		//print_bench();	// print bench
-	free_stack(&a);	// free everything
+	if (config.bench == true)
+		print_bench(&config);					// print bench
+	free_stack(&a);								// free everything
 	free_stack(&b);
 	return (0);
 }
