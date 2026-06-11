@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:01:46 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/11 15:07:57 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/11 15:15:33 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ static void print_disorder(t_config *config);
 
 void print_bench(t_config *config)
 {
-	write(2, "[bench] disorder: ", 18);
-	print_disorder(config);
-	write(2, "", 19);
+		write(2, "[bench] disorder: ", 18);
+		print_disorder(config);
+		write(2, "", 19);
+		//WIP
 }
 
 static void print_disorder(t_config *config)
