@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:13:14 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 19:52:50 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/11 13:29:54 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,43 @@
 
 int	parse_flags(char *arg, t_config *config)
 {
-	int is_flag;
+	static int strategy_set = 0;
 
-	is_flag = 0;
-
-	// TODO: fix bug, that multipe flags are being accepted e.g. ./push_swap --simple --medium 5 2 11 is not valid
-	if (ft_strncmp(arg, "--simple", 9) == 0 && arg[8] == '\0')	// compare the flag to "--simple" if they match strncmp returns 0, 9 characers because 8 + \0
+	if (ft_strncmp(arg, "--simple", 9) == 0 && arg[8] == '\0')
 	{
+		if (strategy_set)
+			return (0);
 		config->strategy = SIMPLE;
-		is_flag = 1;
+		strategy_set = 1;
+		return (1);
 	}
-	else if (ft_strncmp(arg, "--medium", 9) == 0 && arg[8] == '\0') // && arg[8] checks also if the last character is '\0' and so not something like "--mediums" will be accepted
+	if (ft_strncmp(arg, "--medium", 9) == 0 && arg[8] == '\0')
 	{
+		if (strategy_set)
+			return (0);
 		config->strategy = MEDIUM;
-		is_flag = 1;
+		strategy_set = 1;
+		return (1);
 	}
-	else if (ft_strncmp(arg, "--complex", 10) == 0 && arg[9] == '\0')
+	if (ft_strncmp(arg, "--complex", 10) == 0 && arg[9] == '\0')
 	{
+		if (strategy_set)
+			return (0);
 		config->strategy = COMPLEX;
-		is_flag = 1;
+		strategy_set = 1;
+		return (1);
 	}
-	else if (ft_strncmp(arg, "--adaptive", 11) == 0 && arg[10] == '\0')
+	if (ft_strncmp(arg, "--adaptive", 11) == 0 && arg[10] == '\0')
 	{
-		is_flag = 1;
+		if (strategy_set)
+			return (0);
+		strategy_set = 1;
+		return (1);
 	}
-	else if (ft_strncmp(arg, "--bench", 8) == 0 && arg[7] == '\0')
+	if (ft_strncmp(arg, "--bench", 8) == 0 && arg[7] == '\0')
 	{
 		config->bench = true;
-		is_flag = 1;
+		return (1);
 	}
-	return (is_flag);
+	return (0);
 }
