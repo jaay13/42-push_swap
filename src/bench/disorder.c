@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 22:10:35 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/11 15:08:13 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/11 16:58:35 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	strategy_picker(t_config *config)
 {
 	if (config->strategy == ADAPTIVE)
 	{
+		config->adaptive = true;
 		if (config->disorder < 0.2f)
 			config->strategy = SIMPLE;
 		else if (config->disorder >= 0.2f && config->disorder < 0.5f)
