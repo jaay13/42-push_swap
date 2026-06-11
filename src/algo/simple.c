@@ -28,12 +28,17 @@
 
 void	simple_sort(t_stack *a, t_stack *b)
 {
-	while (a->size > 3)
+	if (a->size == 2)
+		sa(a);
+	else
 	{
-		bring_min_to_top_of(a);
-		pb(a, b);								// push smallest value to stack b
+		while (a->size > 3)							
+		{
+			bring_min_to_top_of(a);
+			pb(a, b);								// push smallest value to stack b
+		}
+		sort_three(a);								
+		while (b->size > 0)
+			pa(a, b);								// push them back to a
 	}
-	sort_three(a);
-	while (b->size > 0)
-		pa(a, b);								// push them back to a
 }
