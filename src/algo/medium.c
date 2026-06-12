@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/12 15:03:25 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/12 18:34:10 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	medium_sort(t_stack *a, t_stack *b)
 	int pushed;
 	int chunk_mid;
 	int top_value;
+	int a_size;
+	
 	if (a->size == 2)
 		sa(a);
 	else if (a->size == 3)
@@ -97,7 +99,8 @@ void	medium_sort(t_stack *a, t_stack *b)
 			}
 			current = current->next;
 		}
-		chunk_size = (int)sqrt(a->size) + 1;    			// √n chunks, +1 avoiding undersizing the chunk
+		a_size = a->size;
+		chunk_size = (int)sqrt(a_size) + 1;    			// √n chunks, +1 avoiding undersizing the chunk
 		chunk_start = 0;
 		chunk_end = chunk_size - 1;
 		pushed = 0;
@@ -121,14 +124,10 @@ void	medium_sort(t_stack *a, t_stack *b)
 			pushed = 0;
 			chunk_start += chunk_size;
 			chunk_end += chunk_size;
-			if (chunk_end > a->size - 1)
-				chunk_end = a->size - 1;
+			if (chunk_end > a_size - 1)
+				chunk_end = a_size - 1;
 		}
-		while (b->top)
-		{
-			bring_max_to_top_of(b);
-			pa(a, b);
-		}
+		push_max_chunks_to(a, b);
 		free(copy_of_stack);
 	}
 }
