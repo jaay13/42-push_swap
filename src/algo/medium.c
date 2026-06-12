@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/11 19:18:13 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/12 15:03:25 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,52 +38,97 @@ void	medium_sort(t_stack *a, t_stack *b)
 	int j;
 	int temp;
 	int min_index;
-
-	copy_of_stack = malloc(sizeof(int) * a->size);
-	if (!copy_of_stack)
-		return ;
-	current = a->top;
-	i = 0;
-	while (current)
+	int chunk_size;
+	int chunk_start;
+	int chunk_end;
+	int chunk_count;
+	int pushed;
+	int chunk_mid;
+	int top_value;
+	if (a->size == 2)
+		sa(a);
+	else if (a->size == 3)
+		sort_three(a);
+	else
 	{
-		copy_of_stack[i++] = current->value;
-		current = current->next;
-	}
-	i = 0;
-	while (i < a->size - 1)
-	{
-		min_index = i;
-		j = i + 1;
-		while (j < a->size)
-		{
-			if (copy_of_stack[j] < copy_of_stack[min_index])
-				min_index = j;
-			j++;
-		}
-		if (min_index != i)
-		{
-			temp = copy_of_stack[i];
-			copy_of_stack[i] = copy_of_stack[min_index];
-			copy_of_stack[min_index] = temp;
-		}
-		i++;
-	}
-	current = a->top;
-	i = 0;
-	while (current)
-	{
+		copy_of_stack = malloc(sizeof(int) * a->size);
+		if (!copy_of_stack)
+			return ;
+		current = a->top;
 		i = 0;
-		while (i < a->size)
+		while (current)
 		{
-			if (current->value == copy_of_stack[i])
-			{
-				current->value = i;
-				break;
-			}
-			else
-				i++;
+			copy_of_stack[i++] = current->value;						// copy stack a node values into an array
+			current = current->next;
 		}
-		current = current->next;
+		i = 0;
+		while (i < a->size - 1)											// Go through the array
+		{
+			min_index = i;
+			j = i + 1;
+			while (j < a->size)
+			{
+				if (copy_of_stack[j] < copy_of_stack[min_index])		// if the current min value is bigger then the value at current index
+					min_index = j;										// set to new min value index
+				j++;
+			}
+			if (min_index != i)											// if the found min value index differs from the one before
+			{
+				temp = copy_of_stack[i];
+				copy_of_stack[i] = copy_of_stack[min_index];			// swap them
+				copy_of_stack[min_index] = temp;
+			}															// copy_of_stack will now have a sorted array with stack a values
+			i++;
+		}
+		current = a->top;												// reset current node
+		i = 0;
+		while (current)										
+		{
+			i = 0;
+			while (i < a->size)
+			{
+				if (current->value == copy_of_stack[i])					// Assign rank values based on the index, comparing against the sorted array
+				{
+					current->value = i;									// overwrites a stack values with ranks
+					break;		
+				}
+				else
+					i++;
+			}
+			current = current->next;
+		}
+		chunk_size = (int)sqrt(a->size) + 1;    			// √n chunks, +1 avoiding undersizing the chunk
+		chunk_start = 0;
+		chunk_end = chunk_size - 1;
+		pushed = 0;
+		while (a->top)
+		{
+			chunk_count = chunk_end - chunk_start + 1;
+			while (pushed < chunk_count)
+			{
+				if (a->top->value >= chunk_start && a->top->value <= chunk_end)
+				{
+					top_value = a->top->value;
+					pb(a, b);
+					chunk_mid = (chunk_start + chunk_end) / 2;
+					if (chunk_mid >= top_value && b->size > 1)
+						rb(b);
+					pushed++;
+				}
+				else
+					ra(a);
+			}
+			pushed = 0;
+			chunk_start += chunk_size;
+			chunk_end += chunk_size;
+			if (chunk_end > a->size - 1)
+				chunk_end = a->size - 1;
+		}
+		while (b->top)
+		{
+			bring_max_to_top_of(b);
+			pa(a, b);
+		}
+		free(copy_of_stack);
 	}
-	free(copy_of_stack);
 }
