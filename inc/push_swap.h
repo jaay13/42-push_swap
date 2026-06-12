@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/11 17:29:55 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/12 16:05:29 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdbool.h> 			// true, false, readability
 # include <stdlib.h>  			// malloc, free, exit
 # include <unistd.h>  			// write
+# include <math.h>				// sqrt
 
 enum	e_strategy
 {
@@ -58,6 +59,7 @@ void	stack_init(t_stack *stack, char name);
 void	build_stack(t_stack *stack, t_config *config);
 void	append_node(t_stack *stack, t_node *node);
 void	bring_min_to_top_of(t_stack *a);
+void 	push_max_chunks_to(t_stack *a, t_stack *b);
 void	free_stack(t_stack *stack);
 
 /* ---------------	PARSER	--------------- */
