@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 12:11:36 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/13 13:31:46 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 13:37:52 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int	handle_specifier(int fd, const char **format, va_list *args)
 		return (-1);
 	fmt.specifier = **format;
 	(*format)++;
-	count = ft_printf_format(fd, &fmt, args);
+	count = ft_printf_format_fd(fd, &fmt, args);
 	return (count);
 }
 
