@@ -66,7 +66,7 @@ OK
 
 
 TODO:
-refactor needed for total_ops counting, each ops seperatly counted too for bench
+refactor needed for total_ops counting, each ops seperatly counted too for bench DONE
 implement complex algorithm
 refactor Medium sort, as way too long
-Implement bench (Todo)
+Implement bench (Todo) DONE
