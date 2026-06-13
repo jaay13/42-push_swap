@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 17:22:52 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/04 12:34:54 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 13:34:29 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int					ft_lstsize(t_list *lst);
 /* ---------------	FT_PRINTF	--------------- */
 
 int	ft_printf(const char *format, ...);
+int ft_printf_fd(int fd, const char *format, ...);
 
 /* ---------------	GET_NEXT_LINE	--------------- */
 

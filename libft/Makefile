@@ -6,7 +6,7 @@
 #    By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/06 13:06:48 by jakoch            #+#    #+#              #
-#    Updated: 2026/06/04 12:36:18 by jakoch           ###   ########.fr        #
+#    Updated: 2026/06/13 13:33:52 by jakoch           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,10 @@ SOURCES	=	ft_atoi.c \
 			ft_printf/ft_utils_bonus.c \
 			ft_printf/ft_printf_format_bonus.c \
 			ft_printf/ft_printf_print_bonus.c \
+			ft_printf_fd/ft_printf_fd.c \
+			ft_printf_fd/ft_utils_fd.c \
+			ft_printf_fd/ft_printf_format_fd.c \
+			ft_printf_fd/ft_printf_print_fd.c \
 			get_next_line/get_next_line_bonus.c \
 			get_next_line/get_next_line_utils_bonus.c 
 			
