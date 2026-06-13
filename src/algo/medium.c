@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/13 13:06:25 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 15:11:28 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,3 +131,5 @@ void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 		free(copy_of_stack);
 	}
 }
+
+// refactor needed for medium sort to adhere to 25 lines per function norm 42
