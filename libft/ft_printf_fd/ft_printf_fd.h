@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 12:11:42 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/13 13:30:43 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 14:32:48 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ int			ft_printf_fd(int fd, const char *format, ...);
 int			ft_printf_format_fd(int fd, t_format *fmt, va_list *args);
 
 /* ---------------	PRINT FUNCTION	--------------- */
-int			print_c(int fd, int c);
-int			print_s(int fd, char *str);
-int			print_di(int fd, t_format *fmt, int n);
-int			print_p(int fd, void *p);
-int			print_hexa(int fd, t_format *fmt, unsigned int u);
+int			print_c_fd(int fd, int c);
+int			print_s_fd(int fd, char *str);
+int			print_di_fd(int fd, t_format *fmt, int n);
+int			print_p_fd(int fd, void *p);
+int			print_hexa_fd(int fd, t_format *fmt, unsigned int u);
 
 /* ---------------	UTIL	--------------- */
-int			ft_putnbr_base(int fd, long n, char *base);
-int			ft_putnbr_ubase(int fd, unsigned long n, char *base);
+int			ft_putnbr_base_fd(int fd, long n, char *base);
+int			ft_putnbr_ubase_fd(int fd, unsigned long n, char *base);
 
 #endif

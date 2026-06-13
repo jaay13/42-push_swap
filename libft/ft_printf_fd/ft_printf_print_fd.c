@@ -6,18 +6,18 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 13:57:17 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/13 13:29:25 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 14:33:23 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_fd.h"
 
-int	print_c(int fd, int c)
+int	print_c_fd(int fd, int c)
 {
 	return (write(fd, &c, 1));
 }
 
-int	print_s(int fd, char *str)
+int	print_s_fd(int fd, char *str)
 {
 	int	count;
 
@@ -27,7 +27,7 @@ int	print_s(int fd, char *str)
 	return (count);
 }
 
-int	print_di(int fd, t_format *fmt, int n)
+int	print_di_fd(int fd, t_format *fmt, int n)
 {
 	int	count;
 
@@ -36,11 +36,11 @@ int	print_di(int fd, t_format *fmt, int n)
 		count += write(fd, "+", 1);
 	if (n >= 0 && fmt->flag_space && !fmt->flag_plus)
 		count += write(fd, " ", 1);
-	count += ft_putnbr_base(fd, n, BASE10);
+	count += ft_putnbr_base_fd(fd, n, BASE10);
 	return (count);
 }
 
-int	print_p(int fd, void *p)
+int	print_p_fd(int fd, void *p)
 {
 	int	count;
 
@@ -48,11 +48,11 @@ int	print_p(int fd, void *p)
 	if (!p)
 		return (write(fd, PTR_NULL, ft_strlen(PTR_NULL)));
 	count += write(fd, "0x", 2);
-	count += ft_putnbr_ubase(fd, (unsigned long)p, BASE16_LOWER);
+	count += ft_putnbr_ubase_fd(fd, (unsigned long)p, BASE16_LOWER);
 	return (count);
 }
 
-int	print_hexa(int fd, t_format *fmt, unsigned int u)
+int	print_hexa_fd(int fd, t_format *fmt, unsigned int u)
 {
 	int	count;
 
@@ -61,13 +61,13 @@ int	print_hexa(int fd, t_format *fmt, unsigned int u)
 	{
 		if (u > 0 && fmt->flag_hash)
 			count += write(fd, "0x", 2);
-		count += ft_putnbr_ubase(fd, u, BASE16_LOWER);
+		count += ft_putnbr_ubase_fd(fd, u, BASE16_LOWER);
 	}
 	else
 	{
 		if (u > 0 && fmt->flag_hash)
 			count += write(fd, "0X", 2);
-		count += ft_putnbr_ubase(fd, u, BASE16_UPPER);
+		count += ft_putnbr_ubase_fd(fd, u, BASE16_UPPER);
 	}
 	return (count);
 }
