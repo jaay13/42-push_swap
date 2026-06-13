@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:03:24 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/09 14:52:04 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 12:56:11 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,28 @@ ss : sa and sb at the same time.
 
 static void swap(t_stack *stack);
 
-void sa(t_stack *a)
+void sa(t_stack *a, t_config *config)
 {
     swap(a);
+	config->total_ops++;
+	config->sa++;
     write(1, "sa\n", 3);
 }
 
-void sb(t_stack *b)
+void sb(t_stack *b, t_config *config)
 {
     swap(b);
+	config->total_ops++;
+	config->sb++;
     write(1, "sb\n", 3);
 }
 
-void ss(t_stack *a, t_stack *b)
+void ss(t_stack *a, t_stack *b, t_config *config)
 {
     swap(a);
     swap(b);
+	config->total_ops++;
+	config->ss++;
     write(1, "ss\n", 3);
 }
 

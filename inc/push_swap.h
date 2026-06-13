@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/12 16:05:29 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 13:05:17 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,26 @@ typedef struct s_config
 	char **tokens;				// store the created tokens from parser
 	int count;					// how many were created
 	float disorder;				// disorder metric for stack a
+	int total_ops;				// keep total operations count for bench
+	int pa;						// following keep count for each operation to print in bench
+	int pb;
+	int rra;
+	int rrb;
+	int rrr;
+	int ra;
+	int rb;
+	int rr;
+	int sa;
+	int sb;
+	int ss;
 }		t_config;
 
 /* ---------------	STACK	--------------- */
 void	stack_init(t_stack *stack, char name);
 void	build_stack(t_stack *stack, t_config *config);
 void	append_node(t_stack *stack, t_node *node);
-void	bring_min_to_top_of(t_stack *a);
-void 	push_max_chunks_to(t_stack *a, t_stack *b);
+void	bring_min_to_top_of(t_stack *a, t_config *config);
+void 	push_max_chunks_to(t_stack *a, t_stack *b, t_config *config);
 void	free_stack(t_stack *stack);
 
 /* ---------------	PARSER	--------------- */
@@ -71,24 +83,24 @@ bool	validate_nums(char **tokens);
 /* ---------------	ALGOS --------------- */
 void	choose_algo(t_stack *a, t_stack *b, t_config *config);
 void	strategy_picker(t_config *config);
-void	tiny_sort(t_stack *a, t_stack *b);
-void	sort_three(t_stack *a);
-void	simple_sort(t_stack *a, t_stack *b);
-void	medium_sort(t_stack *a, t_stack *b);
-void	complex_sort(t_stack *a, t_stack *b);
+void	tiny_sort(t_stack *a, t_stack *b, t_config *config);
+void	sort_three(t_stack *a, t_config *config);
+void	simple_sort(t_stack *a, t_stack *b, t_config *config);
+void	medium_sort(t_stack *a, t_stack *b, t_config *config);
+void	complex_sort(t_stack *a, t_stack *b, t_config *config);
 
 /* ---------------	OPERATIONS	--------------- */
-void	sa(t_stack *a);
-void	sb(t_stack *b);
-void	ss(t_stack *a, t_stack *b);
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
-void	ra(t_stack *a);
-void	rb(t_stack *b);
-void	rr(t_stack *a, t_stack *b);
-void	rra(t_stack *a);
-void	rrb(t_stack *b);
-void	rrr(t_stack *a, t_stack *b);
+void	sa(t_stack *a, t_config *config);
+void	sb(t_stack *b, t_config *config);
+void	ss(t_stack *a, t_stack *b, t_config *config);
+void	pa(t_stack *a, t_stack *b, t_config *config);
+void	pb(t_stack *a, t_stack *b, t_config *config);
+void	ra(t_stack *a, t_config *config);
+void	rb(t_stack *b, t_config *config);
+void	rr(t_stack *a, t_stack *b, t_config *config);
+void	rra(t_stack *a, t_config *config);
+void	rrb(t_stack *b, t_config *config);
+void	rrr(t_stack *a, t_stack *b, t_config *config);
 
 /* ---------------	UTILS	--------------- */
 void	error_n_free(char **tokens, int *nums);

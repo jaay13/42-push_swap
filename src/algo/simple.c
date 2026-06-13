@@ -26,19 +26,19 @@
 
 */
 
-void	simple_sort(t_stack *a, t_stack *b)
+void	simple_sort(t_stack *a, t_stack *b, t_config *config)
 {
 	if (a->size == 2)
-		sa(a);
+		sa(a, config);
 	else
 	{
 		while (a->size > 3)							
 		{
-			bring_min_to_top_of(a);
-			pb(a, b);								// push smallest value to stack b
+			bring_min_to_top_of(a, config);
+			pb(a, b, config);								// push smallest value to stack b
 		}
-		sort_three(a);								
+		sort_three(a, config);								
 		while (b->size > 0)
-			pa(a, b);								// push them back to a
+			pa(a, b, config);								// push them back to a
 	}
 }

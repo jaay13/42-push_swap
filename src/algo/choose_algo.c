@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:04:18 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/11 19:16:21 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 13:05:55 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	choose_algo(t_stack *a, t_stack *b, t_config *config)
 {
 	if (config->strategy == SIMPLE)
-		simple_sort(a, b);
+		simple_sort(a, b, config);
 	else if (config->strategy == MEDIUM)
-		medium_sort(a, b);
+		medium_sort(a, b, config);
 	else
-		complex_sort(a, b);
+		complex_sort(a, b, config);
 }
 
 /*  After checking the task carefully I think using a tiny sort is not what the task

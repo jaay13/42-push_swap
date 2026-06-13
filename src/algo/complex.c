@@ -6,14 +6,15 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:11 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 19:12:34 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 13:06:12 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	complex_sort(t_stack *a, t_stack *b)
+void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 {
 	(void)a;
 	(void)b;
+	(void)config;
 }

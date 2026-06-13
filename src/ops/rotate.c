@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 13:20:13 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/09 14:47:17 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 12:56:31 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,28 @@ rr : ra and rb at the same time.
 
 static void rotate(t_stack *stack);
 
-void ra(t_stack *a)
+void ra(t_stack *a, t_config *config)
 {
 	rotate(a);
+	config->total_ops++;
+	config->ra++;
 	write(1, "ra\n", 3);
 }
 
-void rb(t_stack *b)
+void rb(t_stack *b, t_config *config)
 {
 	rotate(b);
+	config->total_ops++;
+	config->rb++;
 	write(1, "rb\n", 3);
 }
 
-void rr(t_stack *a, t_stack *b)
+void rr(t_stack *a, t_stack *b, t_config *config)
 {
 	rotate(a);
 	rotate(b);
+	config->total_ops++;
+	config->rr++;
 	write(1, "rr\n", 3);
 }
 

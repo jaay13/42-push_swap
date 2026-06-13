@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 16:21:57 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/12 18:43:58 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 13:04:48 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	append_node(t_stack *stack, t_node *node)
 	}
 }
 
-void	bring_min_to_top_of(t_stack *a)
+void	bring_min_to_top_of(t_stack *a, t_config *config)
 {
 	t_node *current;
 	int min_value;
@@ -55,12 +55,12 @@ void	bring_min_to_top_of(t_stack *a)
 	}
 	if (min_value_index <= a->size / 2)					// is the min value in the top half or bottom half?  a->size gives total nodes / 2 gives the middle, anything below that = closer to the top
 		while (a->top->value != min_value)					
-			ra(a);										// ra as min value closer to the top
+			ra(a, config);								// ra as min value closer to the top
 	else
 		while (a->top->value != min_value)					
-			rra(a);										// rra as min value is closer to the bottom
+			rra(a, config);								// rra as min value is closer to the bottom
 }
-void	bring_max_to_top_of(t_stack *b)
+void	bring_max_to_top_of(t_stack *b, t_config *config)
 {
 	t_node	*current;
 	int		max_value;
@@ -85,17 +85,17 @@ void	bring_max_to_top_of(t_stack *b)
 	}
 	if (max_value_index <= b->size / 2)
 		while (b->top->value != max_value)
-			rb(b);
+			rb(b, config);
 	else
 		while (b->top->value != max_value)
-			rrb(b);
+			rrb(b, config);
 }
 
-void	push_max_chunks_to(t_stack *a, t_stack *b)
+void	push_max_chunks_to(t_stack *a, t_stack *b, t_config *config)
 {
 	while (b->top)
 	{
-		bring_max_to_top_of(b);
-		pa(a, b);
+		bring_max_to_top_of(b, config);
+		pa(a, b, config);
 	}
 }

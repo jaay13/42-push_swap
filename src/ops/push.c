@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:49:57 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 19:22:02 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 12:52:59 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,23 @@ Do nothing if a is empty.
 
 static void	push(t_stack *src, t_stack *dst);
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, t_config *config)
 {
 	push(b, a);
 	a->size++;
 	b->size--;
+	config->total_ops++;
+	config->pa++;
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b, t_config *config)
 {
 	push(a, b);
 	a->size--;
 	b->size++;
+	config->total_ops++;
+	config->pb++;
 	write(1, "pb\n", 3);
 }
 

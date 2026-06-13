@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/12 18:34:10 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 13:06:25 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ pa
 
 */
 
-void	medium_sort(t_stack *a, t_stack *b)
+void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 {
 	int *copy_of_stack;
 	t_node *current;
@@ -48,9 +48,9 @@ void	medium_sort(t_stack *a, t_stack *b)
 	int a_size;
 	
 	if (a->size == 2)
-		sa(a);
+		sa(a, config);
 	else if (a->size == 3)
-		sort_three(a);
+		sort_three(a, config);
 	else
 	{
 		copy_of_stack = malloc(sizeof(int) * a->size);
@@ -112,14 +112,14 @@ void	medium_sort(t_stack *a, t_stack *b)
 				if (a->top->value >= chunk_start && a->top->value <= chunk_end)
 				{
 					top_value = a->top->value;
-					pb(a, b);
+					pb(a, b, config);
 					chunk_mid = (chunk_start + chunk_end) / 2;
 					if (chunk_mid >= top_value && b->size > 1)
-						rb(b);
+						rb(b, config);
 					pushed++;
 				}
 				else
-					ra(a);
+					ra(a, config);
 			}
 			pushed = 0;
 			chunk_start += chunk_size;
@@ -127,7 +127,7 @@ void	medium_sort(t_stack *a, t_stack *b)
 			if (chunk_end > a_size - 1)
 				chunk_end = a_size - 1;
 		}
-		push_max_chunks_to(a, b);
+		push_max_chunks_to(a, b, config);
 		free(copy_of_stack);
 	}
 }

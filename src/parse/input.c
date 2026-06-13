@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:28:46 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/11 17:09:47 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 13:12:51 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,18 @@ static void config_init(t_config *config)
 	config->tokens = NULL;
 	config->count = 0;
 	config->disorder = 0.0f;
+	config->total_ops = 0;
+	config->pa = 0;
+	config->pb = 0;
+	config->ra = 0;
+	config->rb = 0;
+	config->rr = 0;
+	config->rra = 0;
+	config->rrb = 0;
+	config->rrr = 0;
+	config->sa = 0;
+	config->sb = 0;
+	config->ss = 0;
 }
 
 void	parse_input(int argc, char **argv, t_config *config)
