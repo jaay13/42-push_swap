@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:01:46 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/11 17:23:59 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 14:44:07 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,16 @@ mark mode (to stderr). The operation stream remains on stdout.
 
 static void print_disorder(t_config *config);
 static void print_strategy (t_config *config);
+static void print_total_ops(t_config *config);
+static void print_individual_ops(t_config *config);
 
 
 void print_bench(t_config *config)
 {
 		print_disorder(config);
 		print_strategy(config);
+		print_total_ops(config);
+		print_individual_ops(config);
 		//WIP
 }
 
@@ -73,4 +77,17 @@ static void print_strategy (t_config *config)
 		write(2, "[bench] strategy: Medium / O(n√n)\n", 35);
 	else if (config->strategy == COMPLEX)
 		write(2, "[bench] strategy: Complex / O(nlogn)\n", 37);
+}
+
+static void print_total_ops(t_config *config)
+{
+	write(2, "[bench] total ops: ", 19);
+	ft_putnbr_fd(config->total_ops, 2);
+	write(2, "\n", 1);
+}
+
+static void print_individual_ops(t_config *config)
+{
+	ft_printf_fd(2, "[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n", config->sa, config->sb, config->ss, config->pa, config->pb);
+	ft_printf_fd(2, "[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n", config->ra, config->rb, config->rr, config->rra, config->rrb, config->rrr);
 }
