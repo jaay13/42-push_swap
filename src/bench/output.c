@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:01:46 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/13 15:06:03 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/13 15:08:21 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void print_disorder(t_config *config)
 	whole = percent / 100;													// 1667 / 100 = 16.67 (int: 16)
 	decimal = percent % 100;												// 1667 % 100 = 67 (whole number already)
 	if (decimal < 10)
-		ft_printf_fd(2, "[bench] disorder: %d.0%d%%\n", whole, decimal);		// all decimals under 10 get shifted one, so its 40.07% not 40.7%, or not 40.0% but 40.00%
+		ft_printf_fd(2, "[bench] disorder: %d.0%d%%\n", whole, decimal);	// all decimals under 10 get shifted one, so its 40.07% not 40.7%, or not 40.0% but 40.00%
 	else																	
 		ft_printf_fd(2, "[bench] disorder: %d.%d%%\n", whole, decimal);		// "16.67\n" <- whole.decimal = 16.67+\n
 }
