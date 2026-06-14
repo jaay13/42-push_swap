@@ -38,7 +38,7 @@ void	simple_sort(t_stack *a, t_stack *b, t_config *config)
 			pb(a, b, config);								// push smallest value to stack b
 		}
 		sort_three(a, config);								
-		while (b->size > 0)
+		while (b->size > 0)									// while stack b is not empty
 			pa(a, b, config);								// push them back to a
 	}
 }
