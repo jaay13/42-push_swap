@@ -6,17 +6,16 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 16:59:18 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 16:49:34 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/14 16:04:45 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	stack_init(t_stack *stack, char name)
+void	stack_init(t_stack *stack)
 {
 	if (!stack)
 		return ;
-	stack->name = name;
 	stack->size = 0;
 	stack->top = NULL;
 	stack->bottom = NULL;

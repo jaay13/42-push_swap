@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 15:55:42 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/14 16:04:18 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_node 			// Single Node
 
 typedef struct s_stack 			// A stack (a or b) made of linked nodes
 {
-	char name;      			// a or b
 	int size;       			// How many nodes are inside
 	t_node *top;    			// Pointer to the top of the stack
 	t_node *bottom; 			// Pointer to the bottom of the stack
@@ -66,7 +65,7 @@ typedef struct s_config
 }		t_config;
 
 /* ---------------	STACK	--------------- */
-void	stack_init(t_stack *stack, char name);
+void	stack_init(t_stack *stack);
 void	build_stack(t_stack *stack, t_config *config);
 void	append_node(t_stack *stack, t_node *node);
 void	bring_min_to_top_of(t_stack *a, t_config *config);
