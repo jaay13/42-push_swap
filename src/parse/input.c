@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:28:46 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/13 13:12:51 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/14 15:56:21 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void config_init(t_config *config)
 	config->adaptive = false;
 	config->bench = false;
 	config->tokens = NULL;
-	config->count = 0;
 	config->disorder = 0.0f;
 	config->total_ops = 0;
 	config->pa = 0;
@@ -55,8 +54,4 @@ void	parse_input(int argc, char **argv, t_config *config)
 		write(2, "Error\n", 6);
 		exit(1);
 	}
-	i = 0;																// reset i as it is now used as a counter
-	while (config->tokens[i])											// count the amount of tokens created
-		i++;
-	config->count = i;
 }
