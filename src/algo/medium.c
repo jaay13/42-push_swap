@@ -6,11 +6,9 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/13 15:11:28 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/14 17:51:25 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../inc/push_swap.h"
 
 /*
 
@@ -29,23 +27,13 @@ move max value in b to top of b
 pa 
 
 */
+#include "../inc/push_swap.h"
+
+static void	push_chunks_to_b(t_stack *a, t_stack *b, t_config *config);
 
 void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 {
 	int *copy_of_stack;
-	t_node *current;
-	int i;
-	int j;
-	int temp;
-	int min_index;
-	int chunk_size;
-	int chunk_start;
-	int chunk_end;
-	int chunk_count;
-	int pushed;
-	int chunk_mid;
-	int top_value;
-	int a_size;
 	
 	if (a->size == 2)
 		sa(a, config);
@@ -53,83 +41,41 @@ void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 		sort_three(a, config);
 	else
 	{
-		copy_of_stack = malloc(sizeof(int) * a->size);
+		copy_of_stack = copy_stack_into_array(a);
 		if (!copy_of_stack)
 			return ;
-		current = a->top;
-		i = 0;
-		while (current)
-		{
-			copy_of_stack[i++] = current->value;						// copy stack a node values into an array
-			current = current->next;
-		}
-		i = 0;
-		while (i < a->size - 1)											// Go through the array
-		{
-			min_index = i;
-			j = i + 1;
-			while (j < a->size)
-			{
-				if (copy_of_stack[j] < copy_of_stack[min_index])		// if the current min value is bigger then the value at current index
-					min_index = j;										// set to new min value index
-				j++;
-			}
-			if (min_index != i)											// if the found min value index differs from the one before
-			{
-				temp = copy_of_stack[i];
-				copy_of_stack[i] = copy_of_stack[min_index];			// swap them
-				copy_of_stack[min_index] = temp;
-			}															// copy_of_stack will now have a sorted array with stack a values
-			i++;
-		}
-		current = a->top;												// reset current node
-		i = 0;
-		while (current)										
-		{
-			i = 0;
-			while (i < a->size)
-			{
-				if (current->value == copy_of_stack[i])					// Assign rank values based on the index, comparing against the sorted array
-				{
-					current->value = i;									// overwrites a stack values with ranks
-					break;		
-				}
-				else
-					i++;
-			}
-			current = current->next;
-		}
-		a_size = a->size;
-		chunk_size = (int)sqrt(a_size) + 1;    			// √n chunks, +1 avoiding undersizing the chunk
-		chunk_start = 0;
-		chunk_end = chunk_size - 1;
-		pushed = 0;
-		while (a->top)
-		{
-			chunk_count = chunk_end - chunk_start + 1;
-			while (pushed < chunk_count)
-			{
-				if (a->top->value >= chunk_start && a->top->value <= chunk_end)
-				{
-					top_value = a->top->value;
-					pb(a, b, config);
-					chunk_mid = (chunk_start + chunk_end) / 2;
-					if (chunk_mid >= top_value && b->size > 1)
-						rb(b, config);
-					pushed++;
-				}
-				else
-					ra(a, config);
-			}
-			pushed = 0;
-			chunk_start += chunk_size;
-			chunk_end += chunk_size;
-			if (chunk_end > a_size - 1)
-				chunk_end = a_size - 1;
-		}
-		push_max_chunks_to(a, b, config);
+		sort_array(copy_of_stack, a->size);
+		turn_array_value_into_rank(a, copy_of_stack);
+		push_chunks_to_b(a, b, config);
+		push_max_chunks_to_a(a, b, config);
 		free(copy_of_stack);
 	}
 }
 
-// refactor needed for medium sort to adhere to 25 lines per function norm 42
+static void	push_chunks_to_b(t_stack *a, t_stack *b, t_config *config)
+{
+	int	a_size;
+	int	chunk_size;
+	int	chunk_start;
+	int	chunk_end;
+	int	pushed;
+	int	chunk_count;
+
+	a_size = a->size;
+	chunk_size = (int)sqrt(a_size) + 1;
+	chunk_start = 0;
+	chunk_end = chunk_size - 1;
+	while (a->top)
+	{
+		chunk_count = chunk_end - chunk_start + 1;
+		pushed = 0;
+		while (pushed < chunk_count)
+		{
+			if (a->top->value >= chunk_start && a->top->value <= chunk_end)
+				push_chunk_value_to_b(a, b, config, chunk_start, chunk_end, &pushed);
+			else
+				ra(a, config);
+		}
+		update_chunk(&chunk_start, &chunk_end, chunk_size, a_size);
+	}
+}

@@ -32,7 +32,8 @@ SRCS = src/main.c \
 	src/stack/stack_free.c \
 	src/stack/stack_utils.c \
 	src/utils/error_handle.c \
-	src/utils/helpers.c
+	src/utils/helpers.c \
+	src/utils/medium_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
