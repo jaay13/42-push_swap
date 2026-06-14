@@ -28,7 +28,7 @@ SRCS = src/main.c \
 	src/parse/input.c \
 	src/parse/numbers.c \
 	src/parse/validation.c \
-	src/stack/init.c \
+	src/stack/stack_setup.c \
 	src/stack/stack_free.c \
 	src/stack/stack_utils.c \
 	src/utils/error_handle.c \
