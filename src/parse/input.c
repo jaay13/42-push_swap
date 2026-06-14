@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:28:46 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 15:56:21 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/14 16:40:29 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void config_init(t_config *config)
 {
 	config->num_start = 1;
 	config->strategy = ADAPTIVE; 										// set adaptive as default strategy
+	config->strategy_picked = false;
 	config->adaptive = false;
 	config->bench = false;
 	config->tokens = NULL;

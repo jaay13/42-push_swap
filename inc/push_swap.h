@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 16:15:47 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/14 16:36:37 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_config			// Stores parsing results, strategy choosen, bench cou
 {
 	int num_start;            	// first argv that is not a flag
 	enum e_strategy strategy; 	// sets which strategy is used
+	bool strategy_picked;		// to know if a strategy was already chosen, preventing multiple flags 
 	bool adaptive;				// to know if the actual flag used was --adaptive / non (default adaptive)
 	bool bench;               	// optional bench mode toggle
 	char **tokens;				// store the created tokens from parser
