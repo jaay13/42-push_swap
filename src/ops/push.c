@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:49:57 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 15:29:45 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/14 16:26:06 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	push(t_stack *src, t_stack *dst)
 	if (!src->top)											// checks if stack is empty
 		return ;
 															// eg.: src: TOP/NULL <-> [1] <-> [2] <-> BOTTOM/NULL
-															// 		dst: TOP -> NULL <- BOTTOM (empty)
+															// 		dst: empty
 															// 		dst: TOP/NULL <-> [3] <-> BOTTOM/NULL (eg if not empty)
 	node_to_be_pushed = src->top; 							// node to be pushed now points to src top node [1]
 	src->top = src->top->next;								// TOP -> [2]  	  links src top to node [2]
