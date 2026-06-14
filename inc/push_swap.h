@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 16:04:18 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/14 16:10:07 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_stack 			// A stack (a or b) made of linked nodes
 	t_node *bottom; 			// Pointer to the bottom of the stack
 }		t_stack;
 
-typedef struct s_config
+typedef struct s_config			// Stores parsing results, strategy choosen, bench counters
 {
 	int num_start;            	// first argv that is not a flag
 	enum e_strategy strategy; 	// sets which strategy is used
