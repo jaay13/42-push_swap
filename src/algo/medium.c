@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/15 14:08:04 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 14:51:08 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ pa
 #include "../inc/push_swap.h"
 
 static void	push_chunks_to_b(t_stack *a, t_stack *b, t_config *config);
+
+// TODO check if push_max_chunks_to_a is okay, as its a bit cheeky using n squared helper 
+// bring max to top and also push_max_chunks to a can use a refactor as its also implementable into medium_sort directly 
 
 void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 {
