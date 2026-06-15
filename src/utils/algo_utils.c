@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 12:42:20 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/15 12:53:51 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 13:11:27 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	sort_array(int *copied_array, int stack_size)
 		}
 }
 
-void	turn_array_value_into_rank(t_stack *a, int *sorted_array)
+void	turn_stack_value_into_rank(t_stack *a, int *sorted_array)
 {
 	t_node *current;
 	int i;

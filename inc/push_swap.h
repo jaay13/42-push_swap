@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 17:52:39 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 13:12:11 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int		syntax_error(char *token);
 int 	repetition_error(long nbr, int *nums, int i);
 int		*copy_stack_into_array(t_stack *a);
 void	sort_array(int *copied_array, int stack_size);
-void	turn_array_value_into_rank(t_stack *a, int *sorted_array);
+void	turn_stack_value_into_rank(t_stack *a, int *sorted_array);
 void	push_chunk_value_to_b(t_stack *a, t_stack *b, t_config *config, int chunk_start, int chunk_end, int *pushed);
 void	update_chunk(int *chunk_start, int *chunk_end, int chunk_size, int a_size);
 
