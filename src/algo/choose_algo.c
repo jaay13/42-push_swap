@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:04:18 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/13 13:05:55 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 20:24:47 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,14 @@ void	choose_algo(t_stack *a, t_stack *b, t_config *config)
 	with this option if using --complex and --bench bench would say used complex algorithm
 	which would be misleading if input is under 5 numbersd DONE
 
+
+	15/06:
+	After talking to peers and considering again, incorporating a tiny_sort in choose_algo is wrong.
+	This I had correct, but as I already though in "add special cases in each algorithm" from before:
+	Is probably the correct way, reimplementing a helper like tiny sort and passing this into each function
+	at the beginning as this wouldnt change the complexity of the strategy following, they all just use a
+	base size helper and distinction between Big-O are quite irrelevant at this size anyways. Otherwise using
+	no base size helper might in the end fail us because of thresholds that some peers mentioned.
+
+	SO implement tiny_sort helper again in the algos (TODO)
 */
