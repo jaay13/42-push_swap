@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:11 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/15 15:25:57 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 20:12:12 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ after last bit, stack a is sorted
 
 static int		find_max_bits(int max_value_of_stack);
 static void		push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit);
+static void 	sort_bitwise(t_stack *a, t_stack *b, t_config *config, int size_a);
 
 //TODO refactor complex sort to adhere to norm
 // TODO refactor to have reasonable amount of ops for n 3 & 5
@@ -39,32 +40,23 @@ static void		push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit);
 void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 {
 	int *copy_of_stack;
-	int i;
-	int j;
-	int max_bits;
 	int size_a;
 	
 	size_a = a->size;
-	i = 0;
-	copy_of_stack = copy_stack_into_array(a);
-	if (!copy_of_stack)
-			return ;
-	sort_array(copy_of_stack, size_a);
-	turn_stack_value_into_rank(a, copy_of_stack);
-	max_bits = find_max_bits(size_a - 1);
-	while (i < max_bits)
+	if (a->size == 2)
+		sa(a, config);
+	else if (a->size == 3)
+		sort_three(a, config);
+	else
 	{
-		j = 0;
-		while (j < size_a)
-		{
-			push_or_ra(a, b, config, i);
-			j++;
-		}
-		while (b->top)
-			pa(a, b, config);
-		i++;
+		copy_of_stack = copy_stack_into_array(a);
+		if (!copy_of_stack)
+				return ;
+		sort_array(copy_of_stack, size_a);
+		turn_stack_value_into_rank(a, copy_of_stack);
+		sort_bitwise(a, b, config, size_a);
+		free(copy_of_stack);
 	}
-	free(copy_of_stack);
 }
 
 static int	find_max_bits(int max_value_of_stack)
@@ -83,4 +75,26 @@ static void	push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit)
 		pb(a, b, config);
 	else
 		ra(a, config);
+}
+
+static void sort_bitwise(t_stack *a, t_stack *b, t_config *config, int size_a)
+{
+	int max_bits;
+	int i;
+	int j;
+
+	max_bits = find_max_bits(size_a - 1);
+	i = 0;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < size_a)
+		{
+			push_or_ra(a, b, config, i);
+			j++;
+		}
+		while (b->top)
+			pa(a, b, config);
+		i++;
+	}
 }
