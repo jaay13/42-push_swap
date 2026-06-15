@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:11 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/15 14:41:57 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 14:53:10 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ after last bit, stack a is sorted
 
 #include "../inc/push_swap.h"
 
-int		find_max_bits(int max_value_of_stack);
-void	push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit);
+static int		find_max_bits(int max_value_of_stack);
+static void		push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit);
+
+//TODO refactor complex sort to adhere to norm
 
 void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 {
@@ -64,7 +66,7 @@ void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 	free(copy_of_stack);
 }
 
-int	find_max_bits(int max_value_of_stack)
+static int	find_max_bits(int max_value_of_stack)
 {
 	int bits;
 
@@ -74,7 +76,7 @@ int	find_max_bits(int max_value_of_stack)
 	return (bits);
 }
 
-void	push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit)
+static void	push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit)
 {
 	if (((a->top->value >> bit) & 1) == 0)		// shift a top value right by bit positions, &1 keep only the last bit, == 0 check wether that bit is 0
 		pb(a, b, config);
