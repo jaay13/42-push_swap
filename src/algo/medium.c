@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/15 13:11:47 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 14:08:04 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 		if (!copy_of_stack)
 			return ;
 		sort_array(copy_of_stack, a->size);
-		turn_stack_value_into_rano(a, copy_of_stack);
+		turn_stack_value_into_rank(a, copy_of_stack);
 		push_chunks_to_b(a, b, config);
 		push_max_chunks_to_a(a, b, config);
 		free(copy_of_stack);
