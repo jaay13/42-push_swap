@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 16:21:57 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 17:42:26 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 15:02:56 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	bring_max_to_top_of(t_stack *b, t_config *config)
 			rrb(b, config);
 }
 
+// THIS FUNCTION may need refactor!
 void	push_max_chunks_to_a(t_stack *a, t_stack *b, t_config *config)
 {
 	while (b->top)
