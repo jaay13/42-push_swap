@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:28:46 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 16:40:29 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 19:01:22 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	parse_input(int argc, char **argv, t_config *config)
 	config->tokens = parse_numbers(argc, argv, config->num_start);		// stores **tokens from parse_numbers
 	if (!config->tokens) 												// Checks parse_numbers and handles error in case it returns NULL on error
 	{
-		write(2, "Error\n", 6);
+		ft_printf_fd(2, "Error\n");
 		exit(1);
 	}
 }
