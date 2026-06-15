@@ -6,17 +6,17 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/15 14:51:08 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 14:51:49 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 
 Chunk-based sorting (divide into √n chunks)
-Collect and store all values from a in a copy DONE
-sort copies DONE
-turn each value to a rank 0 -> n - 1 (n = amount of numbers in total) CURRENTLY 
-Push based on √n chunks TODO
+Collect and store all values from a in a copy
+sort copies
+turn each value to a rank 0 -> n - 1 (n = amount of numbers in total)
+Push based on √n chunks
 Look at a
 Start from a->top
 check rank of value, push b when in top ranks, if not ra until a value from chunk 1 comes to the top
