@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:11 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/15 14:53:10 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 15:25:57 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static int		find_max_bits(int max_value_of_stack);
 static void		push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit);
 
 //TODO refactor complex sort to adhere to norm
+// TODO refactor to have reasonable amount of ops for n 3 & 5
 
 void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 {
