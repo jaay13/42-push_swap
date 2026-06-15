@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:17:43 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 16:11:36 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/15 19:42:18 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ void	sort_three(t_stack *a, t_config *config)
 	top = a->top->value;
 	middle = a->top->next->value;
 	bottom = a->bottom->value;
+	if (top < middle && middle < bottom)				// already sorted
+		return ;
 	if (top < bottom && middle < bottom) 				// is bottom the biggest?
-		sa(a, config);									// does work because the other option e.g 1,2,3 is already filtered out by disorder 0
+		sa(a, config);
 	else if (top < middle && middle > bottom) 			// is middle the biggest?
 	{
 		rra(a, config);
@@ -37,4 +39,3 @@ void	sort_three(t_stack *a, t_config *config)
 			sa(a, config);
 	}
 }
-
