@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:49:57 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 16:26:06 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 14:52:13 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	pa(t_stack *a, t_stack *b, t_config *config)
 	b->size--;
 	config->total_ops++;
 	config->pa++;
-	write(1, "pa\n", 3);
+	ft_printf("pa\n");
 }
 
 void	pb(t_stack *a, t_stack *b, t_config *config)
@@ -41,7 +41,7 @@ void	pb(t_stack *a, t_stack *b, t_config *config)
 	b->size++;
 	config->total_ops++;
 	config->pb++;
-	write(1, "pb\n", 3);
+	ft_printf("pb\n");
 }
 
 static void	push(t_stack *src, t_stack *dst)

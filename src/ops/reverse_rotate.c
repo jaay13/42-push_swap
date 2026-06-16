@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:52:30 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 15:15:56 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 14:52:00 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void rra(t_stack *a, t_config *config)
 	reverse_rotate(a);
 	config->total_ops++;
 	config->rra++;
-	write(1, "rra\n", 4);
+	ft_printf("rra\n");
 }
 void rrb(t_stack *b, t_config *config)
 {
 	reverse_rotate(b);
 	config->total_ops++;
 	config->rrb++;
-	write(1, "rrb\n", 4);
+	ft_printf("rrb\n");
 }
 void rrr(t_stack *a, t_stack *b, t_config *config)
 {
@@ -46,7 +46,7 @@ void rrr(t_stack *a, t_stack *b, t_config *config)
 	reverse_rotate(b);
 	config->total_ops++;
 	config->rrr++;
-	write(1, "rrr\n", 4);
+	ft_printf("rrr\n");
 }
 
 static void reverse_rotate(t_stack *stack)

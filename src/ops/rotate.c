@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 13:20:13 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 14:37:01 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 14:51:39 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void ra(t_stack *a, t_config *config)
 	rotate(a);
 	config->total_ops++;
 	config->ra++;
-	write(1, "ra\n", 3);
+	ft_printf("ra\n");
 }
 
 void rb(t_stack *b, t_config *config)
@@ -40,7 +40,7 @@ void rb(t_stack *b, t_config *config)
 	rotate(b);
 	config->total_ops++;
 	config->rb++;
-	write(1, "rb\n", 3);
+	ft_printf("rb\n");
 }
 
 void rr(t_stack *a, t_stack *b, t_config *config)
@@ -49,7 +49,7 @@ void rr(t_stack *a, t_stack *b, t_config *config)
 	rotate(b);
 	config->total_ops++;
 	config->rr++;
-	write(1, "rr\n", 3);
+	ft_printf("rr\n");
 }
 
 static void rotate(t_stack *stack)

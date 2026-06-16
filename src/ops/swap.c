@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:03:24 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 14:36:53 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 14:51:07 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void sa(t_stack *a, t_config *config)
     swap(a);
 	config->total_ops++;
 	config->sa++;
-    write(1, "sa\n", 3);
+    ft_printf("sa\n");
 }
 
 void sb(t_stack *b, t_config *config)
@@ -39,7 +39,7 @@ void sb(t_stack *b, t_config *config)
     swap(b);
 	config->total_ops++;
 	config->sb++;
-    write(1, "sb\n", 3);
+	ft_printf("sb\n");
 }
 
 void ss(t_stack *a, t_stack *b, t_config *config)
@@ -48,7 +48,7 @@ void ss(t_stack *a, t_stack *b, t_config *config)
     swap(b);
 	config->total_ops++;
 	config->ss++;
-    write(1, "ss\n", 3);
+	ft_printf("ss\n");
 }
 
 static void swap(t_stack *stack)
