@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 12:42:20 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/15 13:11:27 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 14:16:53 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,23 @@
 
 #include "../inc/push_swap.h"
 
-int	*copy_stack_into_array(t_stack *a)
+static int	*copy_stack_into_array(t_stack *a);
+static void	sort_array(int *copied_array, int stack_size);
+static void	turn_stack_value_into_rank(t_stack *a, int *sorted_array);
+
+void	rank_stack_values_of(t_stack *a)
+{
+	int *copy_of_stack;
+	
+	copy_of_stack = copy_stack_into_array(a);
+	if (!copy_of_stack)
+		return ;
+	sort_array(copy_of_stack, a->size);
+	turn_stack_value_into_rank(a, copy_of_stack);
+	free(copy_of_stack);
+}
+
+static int	*copy_stack_into_array(t_stack *a)
 {
 	int *copy_of_stack;
 	int i;
@@ -35,7 +51,7 @@ int	*copy_stack_into_array(t_stack *a)
 	return (copy_of_stack);
 }
 
-void	sort_array(int *copied_array, int stack_size)
+static void	sort_array(int *copied_array, int stack_size)
 {
 	int min_index;
 	int i;
@@ -63,7 +79,7 @@ void	sort_array(int *copied_array, int stack_size)
 		}
 }
 
-void	turn_stack_value_into_rank(t_stack *a, int *sorted_array)
+static void	turn_stack_value_into_rank(t_stack *a, int *sorted_array)
 {
 	t_node *current;
 	int i;

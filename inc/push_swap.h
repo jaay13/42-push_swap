@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 13:16:21 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 14:18:31 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	stack_init(t_stack *stack);
 void	build_stack(t_stack *stack, t_config *config);
 void	append_node(t_stack *stack, t_node *node);
 void	bring_min_to_top_of(t_stack *a, t_config *config);
-void 	push_max_chunks_to_a(t_stack *a, t_stack *b, t_config *config);
+void	bring_max_to_top_of(t_stack *b, t_config *config);
 void	free_stack(t_stack *stack);
 
 /* ---------------	PARSER	--------------- */
@@ -107,11 +107,7 @@ void	free_str_array(char **tokens);
 long	ft_atol(const char *str);
 int		syntax_error(char *token);
 int 	repetition_error(long nbr, int *nums, int i);
-int		*copy_stack_into_array(t_stack *a);
-void	sort_array(int *copied_array, int stack_size);
-void	turn_stack_value_into_rank(t_stack *a, int *sorted_array);
-void	push_chunk_value_to_b(t_stack *a, t_stack *b, t_config *config, int chunk_start, int chunk_end, int *pushed);
-void	update_chunk(int *chunk_start, int *chunk_end, int chunk_size, int a_size);
+void	rank_stack_values_of(t_stack *a);
 
 /* ---------------	BENCH	--------------- */
 void	compute_disorder(t_stack *a, t_config *config);

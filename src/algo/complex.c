@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:11 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 13:22:19 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 14:16:47 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,14 @@ after last bit, stack a is sorted
 
 */
 
+//TODO refactor complex sort to adhere to norm
 
 #include "../inc/push_swap.h"
 
-static int		find_max_bits(int max_value_of_stack);
-static void		push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit);
 static void 	sort_bitwise(t_stack *a, t_stack *b, t_config *config, int size_a);
-
-//TODO refactor complex sort to adhere to norm
 
 void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 {
-	int *copy_of_stack;
 	int size_a;
 	
 	size_a = a->size;
@@ -46,13 +42,8 @@ void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 		tiny_sort(a, b, config);
 	else
 	{
-		copy_of_stack = copy_stack_into_array(a);
-		if (!copy_of_stack)
-				return ;
-		sort_array(copy_of_stack, size_a);
-		turn_stack_value_into_rank(a, copy_of_stack);
+		rank_stack_values_of(a);
 		sort_bitwise(a, b, config, size_a);
-		free(copy_of_stack);
 	}
 }
 
