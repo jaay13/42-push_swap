@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:16:39 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 17:17:07 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	push_chunks_to_b(t_stack *a, t_stack *b, t_config *config)
 	int	chunk_count;
 
 	a_size = a->size;
-	chunk_size = (int)sqrt(a_size) + 1;
+	chunk_size = (int)sqrt(a_size) * 3;
 	chunk_start = 0;
 	chunk_end = chunk_size - 1;
 	while (a->top)
