@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:11 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 13:14:28 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 13:22:19 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void		push_or_ra(t_stack *a, t_stack *b, t_config *config, int bit);
 static void 	sort_bitwise(t_stack *a, t_stack *b, t_config *config, int size_a);
 
 //TODO refactor complex sort to adhere to norm
-// TODO refactor to have reasonable amount of ops for n 3 & 5
 
 void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 {
