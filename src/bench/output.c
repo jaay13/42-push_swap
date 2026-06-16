@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:01:46 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:53:06 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 17:21:06 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ static void print_individual_ops(t_config *config);
 
 void print_bench(t_config *config)
 {
-		print_disorder(config);
-		print_strategy(config);
-		print_total_ops(config);
-		print_individual_ops(config);
+	print_disorder(config);
+	print_strategy(config);
+	print_total_ops(config);
+	print_individual_ops(config);
 }
 
 static void print_disorder(t_config *config)
