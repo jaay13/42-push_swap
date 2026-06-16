@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 16:21:57 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/15 15:02:56 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 14:47:46 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	bring_min_to_top_of(t_stack *a, t_config *config)
 void	bring_max_to_top_of(t_stack *b, t_config *config)
 {
 	t_node	*current;
-	int		max_value;
-	int		max_value_index;
-	int		i;
+	int	max_value;
+	int	max_value_index;
+	int	i;
 
 	if (!b || !b->top)
 		return ;
@@ -91,12 +91,3 @@ void	bring_max_to_top_of(t_stack *b, t_config *config)
 			rrb(b, config);
 }
 
-// THIS FUNCTION may need refactor!
-void	push_max_chunks_to_a(t_stack *a, t_stack *b, t_config *config)
-{
-	while (b->top)
-	{
-		bring_max_to_top_of(b, config);
-		pa(a, b, config);
-	}
-}

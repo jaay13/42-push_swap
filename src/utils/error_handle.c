@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 11:21:54 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/08 14:57:45 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 14:47:11 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int repetition_error(long nbr, int *nums, int i)
 	int j;
 
 	j = 0;
-
 	while (j < i)
 	{
 		if (nums[j] == nbr)

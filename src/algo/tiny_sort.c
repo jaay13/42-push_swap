@@ -6,14 +6,13 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:17:43 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 13:16:33 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 14:54:02 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../inc/push_swap.h"
 
-void extract_min_to_three(t_stack *a, t_stack *b, t_config *config);
 static void	sort_three(t_stack *a, t_config *config);
 
 void tiny_sort(t_stack *a, t_stack *b, t_config *config)				// fixed O(1), maxed input fixed
