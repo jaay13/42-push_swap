@@ -17,7 +17,7 @@ SRCS = src/main.c \
 	src/algo/complex.c \
 	src/algo/medium.c \
 	src/algo/simple.c \
-	src/algo/sort_three.c \
+	src/algo/tiny_sort.c \
 	src/bench/disorder.c \
 	src/bench/output.c \
 	src/ops/push.c \

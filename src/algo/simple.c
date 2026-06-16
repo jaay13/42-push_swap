@@ -28,17 +28,8 @@
 
 void	simple_sort(t_stack *a, t_stack *b, t_config *config)
 {
-	if (a->size == 2)
-		sa(a, config);
+	if (a->size <= 5)
+		tiny_sort(a, b, config);
 	else
-	{
-		while (a->size > 3)							
-		{
-			bring_min_to_top_of(a, config);
-			pb(a, b, config);								// push smallest value to stack b
-		}
-		sort_three(a, config);								
-		while (b->top)										// while stack b is not empty
-			pa(a, b, config);								// push them back to a
-	}
+		extract_min_to_three(a, b, config);
 }

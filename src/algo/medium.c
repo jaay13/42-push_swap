@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/15 15:26:28 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/16 13:13:14 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@ void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 {
 	int *copy_of_stack;
 	
-	if (a->size == 2)
-		sa(a, config);
-	else if (a->size == 3)
-		sort_three(a, config);
+	if (a->size <= 5)
+		tiny_sort(a, b, config);
 	else
 	{
 		copy_of_stack = copy_stack_into_array(a);
