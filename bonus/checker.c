@@ -35,5 +35,6 @@ int	main(int argc, char **argv)
 	check_if_sorted(&a, &b);							// implement a function that checks if after the input it is sorted (OK, KO print)
 	free_stack(&a);										// free everyting
 	free_stack(&b);
+	free_str_array(config.tokens);
 	return (0);
 }

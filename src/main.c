@@ -31,5 +31,6 @@ int main(int argc, char **argv)
 		print_bench(&config);					// print bench
 	free_stack(&a);								// free everything
 	free_stack(&b);
+	free_str_array(config.tokens);
 	return (0);
 }

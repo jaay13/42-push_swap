@@ -31,10 +31,10 @@ bool	validate_nums(char **tokens)
 
 	i = token_count(tokens);
 	if (i == 0) 												// filters out empty string ""
-		return (false);
+		return (free_str_array(tokens), false);
 	nums = malloc(sizeof(int) * i);
 	if (!nums)
-		return (false);
+		return (free_str_array(tokens), false);
 	i = 0;
 	while (tokens[i]) 											// loops all tokens are checked
 	{

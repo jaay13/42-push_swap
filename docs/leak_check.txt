@@ -1,0 +1,59 @@
+leaks --atExit -- ./push_swap 3 2 1
+
+ra
+sa
+
+Process: push_swap
+4 leaks for 96 total leaked bytes.
+
+ROOT LEAK: <malloc in parse_numbers>
+main
+parse_input
+parse_numbers
+
+1 leak from tokens array
+3 leaks from ft_strdup
+
+leaks --atExit -- ./push_swap 4 1 3 2   
+
+ra
+pb
+sa
+pa
+
+Process: push_swap
+5 leaks for 112 total leaked bytes.
+ROOT LEAK: <malloc in parse_numbers>
+
+1 leak from tokens array
+4 leaks from ft_strdup
+
+printf "" | leaks --atExit -- ./checker 1 2 3
+
+Process: checker
+4 leaks for 96 total leaked bytes.
+ROOT LEAK: <malloc in parse_numbers>
+main
+parse_input
+parse_numbers
+
+1 leak from tokens array
+3 leaks from ft_strdup
+
+Leak check after freeing config.tokens on normal exit paths.
+
+leaks --atExit -- ./push_swap 4 1 3 2
+
+Program output:
+ra
+pb
+sa
+pa
+
+Process: push_swap
+0 leaks for 0 total leaked bytes.
+
+printf "" | leaks --atExit -- ./checker 4 1 2 3
+
+Process: checker
+0 leaks for 0 total leaked bytes.
