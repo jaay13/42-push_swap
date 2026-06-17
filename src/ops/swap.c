@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:03:24 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:51:07 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 17:03:54 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,35 @@ static void swap(t_stack *stack);
 void sa(t_stack *a, t_config *config)
 {
     swap(a);
-	config->total_ops++;
-	config->sa++;
-    ft_printf("sa\n");
+	if (!config->checker)
+	{
+		config->total_ops++;
+		config->sa++;
+    	ft_printf("sa\n");
+	}
 }
 
 void sb(t_stack *b, t_config *config)
 {
     swap(b);
-	config->total_ops++;
-	config->sb++;
-	ft_printf("sb\n");
+	if (!config->checker)
+	{
+		config->total_ops++;
+		config->sb++;
+		ft_printf("sb\n");
+	}
 }
 
 void ss(t_stack *a, t_stack *b, t_config *config)
 {
     swap(a);
     swap(b);
-	config->total_ops++;
-	config->ss++;
-	ft_printf("ss\n");
+	if (!config->checker)
+	{
+		config->total_ops++;
+		config->ss++;
+		ft_printf("ss\n");
+	}
 }
 
 static void swap(t_stack *stack)

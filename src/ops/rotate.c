@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 13:20:13 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:51:39 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 17:02:53 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,35 @@ static void rotate(t_stack *stack);
 void ra(t_stack *a, t_config *config)
 {
 	rotate(a);
-	config->total_ops++;
-	config->ra++;
-	ft_printf("ra\n");
+	if (!config->checker)
+	{
+		config->total_ops++;
+		config->ra++;
+		ft_printf("ra\n");
+	}
 }
 
 void rb(t_stack *b, t_config *config)
 {
 	rotate(b);
-	config->total_ops++;
-	config->rb++;
-	ft_printf("rb\n");
+	if (!config->checker)
+	{
+		config->total_ops++;
+		config->rb++;
+		ft_printf("rb\n");
+	}
 }
 
 void rr(t_stack *a, t_stack *b, t_config *config)
 {
 	rotate(a);
 	rotate(b);
-	config->total_ops++;
-	config->rr++;
-	ft_printf("rr\n");
+	if (!config->checker)
+	{
+		config->total_ops++;
+		config->rr++;
+		ft_printf("rr\n");
+	}
 }
 
 static void rotate(t_stack *stack)

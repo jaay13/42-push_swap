@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:52:30 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:52:00 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 17:02:11 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,37 @@ static void reverse_rotate(t_stack *stack);
 void rra(t_stack *a, t_config *config)
 {
 	reverse_rotate(a);
-	config->total_ops++;
-	config->rra++;
-	ft_printf("rra\n");
+	if (!config->checker)
+	{
+		config->total_ops++;
+		config->rra++;
+		ft_printf("rra\n");
+	}
+	
 }
 void rrb(t_stack *b, t_config *config)
 {
 	reverse_rotate(b);
-	config->total_ops++;
-	config->rrb++;
-	ft_printf("rrb\n");
+	if (!config->checker)
+	{
+		config->total_ops++;
+		config->rrb++;
+		ft_printf("rrb\n");
+	}
+
 }
 void rrr(t_stack *a, t_stack *b, t_config *config)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	config->total_ops++;
-	config->rrr++;
-	ft_printf("rrr\n");
+	if (!config->checker)
+	{
+		config->total_ops++;
+		config->rrr++;
+		ft_printf("rrr\n");
+	}
 }
+	
 
 static void reverse_rotate(t_stack *stack)
 {
