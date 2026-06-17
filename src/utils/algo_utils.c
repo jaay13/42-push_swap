@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 12:42:20 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:16:53 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 20:17:41 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,18 @@ static int	*copy_stack_into_array(t_stack *a);
 static void	sort_array(int *copied_array, int stack_size);
 static void	turn_stack_value_into_rank(t_stack *a, int *sorted_array);
 
-void	rank_stack_values_of(t_stack *a)
+void	rank_stack_values_of(t_stack *a, t_config *config)
 {
 	int *copy_of_stack;
 	
 	copy_of_stack = copy_stack_into_array(a);
 	if (!copy_of_stack)
-		return ;
+	{
+		free_stack(a);
+		free_str_array(config->tokens);
+		ft_printf_fd(2, "Error\n");
+		exit(1);
+	}
 	sort_array(copy_of_stack, a->size);
 	turn_stack_value_into_rank(a, copy_of_stack);
 	free(copy_of_stack);

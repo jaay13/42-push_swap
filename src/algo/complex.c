@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:11 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:16:47 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 20:18:01 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	complex_sort(t_stack *a, t_stack *b, t_config *config)
 		tiny_sort(a, b, config);
 	else
 	{
-		rank_stack_values_of(a);
+		rank_stack_values_of(a, config);
 		sort_bitwise(a, b, config, size_a);
 	}
 }

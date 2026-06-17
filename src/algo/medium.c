@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 17:17:07 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 20:17:53 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 		tiny_sort(a, b, config);
 	else
 	{
-		rank_stack_values_of(a);
+		rank_stack_values_of(a, config);
 		push_chunks_to_b(a, b, config);
 		push_max_values_back_to_a(a, b, config);
 	}

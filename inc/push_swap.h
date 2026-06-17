@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 17:20:44 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 20:18:14 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	free_str_array(char **tokens);
 long	ft_atol(const char *str);
 int		syntax_error(char *token);
 int 	repetition_error(long nbr, int *nums, int i);
-void	rank_stack_values_of(t_stack *a);
+void	rank_stack_values_of(t_stack *a, t_config *config);
 
 /* ---------------	BENCH	--------------- */
 void	compute_disorder(t_stack *a, t_config *config);
