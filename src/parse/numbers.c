@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:14:27 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:48:09 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 20:04:35 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	**parse_numbers(int argc, char **argv, int start_index)
 	}
 	if (arg_count > 1) 											// more than one numberic argv entry
 	{
-		tokens = malloc((arg_count + 1) * sizeof(char *)); 		// allocate the tokens
+		tokens = ft_calloc(arg_count + 1, sizeof(char *)); 		// allocate the tokens, and init all to NULL
 		if (!tokens)
 			return (NULL);
 		while (i < arg_count) 									// do until all args are used up
