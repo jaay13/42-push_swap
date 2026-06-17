@@ -2,6 +2,8 @@ CC = cc
 
 NAME = push_swap
 
+BONUS_NAME = checker
+
 LIBFT_DIR = libft
 
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -37,10 +39,31 @@ SRCS = src/main.c \
 
 OBJS = $(SRCS:.c=.o)
 
+CHECKER_SRCS = bonus/checker.c \
+	bonus/checker_utils.c \
+	src/ops/push.c \
+	src/ops/reverse_rotate.c \
+	src/ops/rotate.c \
+	src/ops/swap.c \
+	src/parse/numbers.c \
+	src/parse/validation.c \
+	src/stack/stack_setup.c \
+	src/stack/stack_free.c \
+	src/stack/stack_utils.c \
+	src/utils/error_handle.c \
+	src/utils/helpers.c
+
+CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(LIBFT) $(CHECKER_OBJS)
+	$(CC) $(CFLAGS) $(CHECKER_OBJS) $(LIBFT) -o $(BONUS_NAME)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
@@ -49,11 +72,11 @@ $(LIBFT):
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(CHECKER_OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUS_NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
@@ -64,4 +87,4 @@ test:
 count:
 	./$(NAME) 4 1 3 2 | wc -l
 
-.PHONY: all clean fclean re test count
+.PHONY: all bonus clean fclean re test count
