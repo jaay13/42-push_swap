@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:18:31 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 15:05:19 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_config			// Stores parsing results, strategy choosen, bench cou
 	bool strategy_picked;		// to know if a strategy was already chosen, preventing multiple flags 
 	bool adaptive;				// to know if the actual flag used was --adaptive / non (default adaptive)
 	bool bench;               	// optional bench mode toggle
+	bool checker;				// To know if checker is used
 	char **tokens;				// store the created tokens from parser
 	float disorder;				// disorder metric for stack a
 	int total_ops;				// keep total operations count for bench
