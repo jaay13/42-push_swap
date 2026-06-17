@@ -6,23 +6,20 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:05:56 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 16:49:24 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 17:19:47 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	handle_input(t_stack *a, t_stack *b, t_config *config)
+void	checker_error_n_free(t_stack *a, t_stack *b, t_config *config, char *line)
 {
-	char	*line;
-
-	line = get_next_line(0);									// get input from stdin, eg.: ra, pa, pb
-	while (line)
-	{
-		execute_input_operation(a, b, config, line);			// executes operation command, if no correct input print error
-		free(line);
-		line = get_next_line(0);
-	}
+	free(line);
+	free_stack(a);
+	free_stack(b);
+	free_str_array(config->tokens);
+	ft_printf_fd(2, "Error\n");
+	exit(1);
 }
 
 void	execute_input_operation(t_stack *a, t_stack *b, t_config *config, char *line)
@@ -53,14 +50,17 @@ void	execute_input_operation(t_stack *a, t_stack *b, t_config *config, char *lin
 		checker_error_n_free(a, b, config, line);
 }
 
-void	checker_error_n_free(t_stack *a, t_stack *b, t_config *config, char *line)
+void	handle_input(t_stack *a, t_stack *b, t_config *config)
 {
-	free(line);
-	free_stack(a);
-	free_stack(b);
-	free_str_array(config->tokens);
-	ft_printf_fd(2, "Error\n");
-	exit(1);
+	char	*line;
+
+	line = get_next_line(0);									// get input from stdin, eg.: ra, pa, pb
+	while (line)
+	{
+		execute_input_operation(a, b, config, line);			// executes operation command, if no correct input print error
+		free(line);
+		line = get_next_line(0);
+	}
 }
 
 void	check_if_sorted(t_stack *a, t_stack *b)
