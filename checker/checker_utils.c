@@ -6,13 +6,13 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:05:56 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 15:52:31 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 15:59:07 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	read_input(t_stack *a, t_stack *b, t_config *config)
+void	handle_input(t_stack *a, t_stack *b, t_config *config)
 {
 	char	*line;
 
