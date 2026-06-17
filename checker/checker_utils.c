@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:05:56 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 15:59:07 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 16:49:24 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,26 @@ void	checker_error_n_free(t_stack *a, t_stack *b, t_config *config, char *line)
 	free_str_array(config->tokens);
 	ft_printf_fd(2, "Error\n");
 	exit(1);
+}
+
+void	check_if_sorted(t_stack *a, t_stack *b)
+{
+	t_node *current;
+
+	if (b->size	> 0)									// if stack b isn't empty at the end of sort
+	{
+		ft_printf("KO\n");								
+		return ;
+	}
+	current = a->top;
+	while (current && current->next)					// while there is a current node and next node in stack a to compare
+	{
+		if (current->value > current->next->value)
+		{
+			ft_printf("KO\n");
+			return ;
+		}
+		current = current->next;
+	}
+	ft_printf("OK\n");
 }
