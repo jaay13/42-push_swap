@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 15:05:19 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 15:09:58 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,10 @@ void	rank_stack_values_of(t_stack *a);
 /* ---------------	BENCH	--------------- */
 void	compute_disorder(t_stack *a, t_config *config);
 void 	print_bench(t_config *config);
+
+/* ---------------	CHECKER	--------------- */
+void	read_input(t_stack *a, t_stack *b, t_config *config);
+
+
 
 #endif
