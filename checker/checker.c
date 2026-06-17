@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 12:56:23 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 14:33:20 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 14:46:06 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int	main(int argc, char **argv)
 	config.checker = true;								// sets checker to be active, needed for checking in ops
 	config.tokens = NULL;								// init tokens
 	config.tokens = parse_numbers(argc, argv, 1);       // parse input, make sure valid input (this time no flag parsing just number validation)
+	if (!config.tokens)
+	{
+		ft_printf_fd(2, "Error\n");
+		exit(1);
+	}
 	build_stack(&a, &config);							// build stack a
 	// use get_next_line to read from stdin
 	// check that each input is an operation and execute it
