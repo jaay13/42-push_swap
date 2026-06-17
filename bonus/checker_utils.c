@@ -6,13 +6,13 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:05:56 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 17:19:47 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 17:56:43 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	checker_error_n_free(t_stack *a, t_stack *b, t_config *config, char *line)
+static void	checker_error_n_free(t_stack *a, t_stack *b, t_config *config, char *line)
 {
 	free(line);
 	free_stack(a);
@@ -22,7 +22,7 @@ void	checker_error_n_free(t_stack *a, t_stack *b, t_config *config, char *line)
 	exit(1);
 }
 
-void	execute_input_operation(t_stack *a, t_stack *b, t_config *config, char *line)
+static void	execute_input_operation(t_stack *a, t_stack *b, t_config *config, char *line)
 {
 	if (ft_strncmp(line, "sa\n", 4) == 0)
 		sa(a, config);
