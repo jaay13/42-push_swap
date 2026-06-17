@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 12:56:23 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 14:00:21 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 14:15:48 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ int	main(int argc, char **argv)
 		return (0); 							// no parameters 
 	stack_init(&a); 							// initialize stack a
 	stack_init(&b); 							// init stack b
+	//parse input, make sure valid input (this time no flag parsing just number validation)
 	build_stack(&a, &config);					// build stack a
+	// use get_next_line to read from stdin
+	// check that each input is an operation and execute it
+	// implement a function that checks if after the input it is sorted (OK, KO print)
 	free_stack(&a);								// free everyting
 	free_stack(&b);
 	return (0);
