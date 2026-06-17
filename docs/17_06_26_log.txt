@@ -74,3 +74,31 @@ ARG="199 196 195 194 193 192 187 186 182 179 178 177 176 173 172 171 167 166 164
 [bench] sa: 0 sb: 0 ss: 0 pa: 384 pb: 384
 [bench] ra: 316 rb: 0 rr: 0 rra: 0 rrb: 0 rrr: 0
 OK
+
+./checker 1 2
+pa
+pb
+OK
+SHOULD BE KO!!!
+
+when called in main.c:
+./push_swap 1 | cat -e
+sa$
+
+same for pa:
+./push_swap 1 | cat -e
+pa$
+
+after fix:
+./checker 1 2
+pa
+pb
+KO
+
+when called in main.c:
+./push_swap 1 | cat -e
+nothing
+
+same for pa:
+./push_swap 1 | cat -e
+nothing
