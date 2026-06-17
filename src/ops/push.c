@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:49:57 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 16:59:49 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 19:44:01 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static void	push(t_stack *src, t_stack *dst);
 
 void	pa(t_stack *a, t_stack *b, t_config *config)
 {
+	if (!b->top)
+		return ;
 	push(b, a);
-	a->size++;
-	b->size--;
 	if (!config->checker)
 	{
 		config->total_ops++;
@@ -39,9 +39,9 @@ void	pa(t_stack *a, t_stack *b, t_config *config)
 
 void	pb(t_stack *a, t_stack *b, t_config *config)
 {
+	if (!a->top)
+		return ;
 	push(a, b);
-	a->size--;
-	b->size++;
 	if (!config->checker)
 	{
 		config->total_ops++;
@@ -78,6 +78,8 @@ static void	push(t_stack *src, t_stack *dst)
 		node_to_be_pushed->next->prev = node_to_be_pushed; 	// [1] <- [3]	  links prev from old top node [3] to becoming top node [1]
 		dst->top = node_to_be_pushed;						// TOP -> [1]	  links dst top to node [1], making it the new top of dst
 	}
+	src->size--;
+	dst->size++;
 															// now: src: TOP/NULL <-> [2] <-> BOTTOM/NULL
 															// 		dst: TOP/NULL <-> [1] <-> BOTTOM/NULL (if it was empty)
 															//		dst: TOP/NULL <-> [1] <-> [3] <-> BOTTOM/NULL (if not empty)

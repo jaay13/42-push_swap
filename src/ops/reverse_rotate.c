@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:52:30 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 17:02:11 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 19:53:07 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void reverse_rotate(t_stack *stack);
 
 void rra(t_stack *a, t_config *config)
 {
+	if (!a->top || !a->top->next)
+		return ;
 	reverse_rotate(a);
 	if (!config->checker)
 	{
@@ -39,6 +41,8 @@ void rra(t_stack *a, t_config *config)
 }
 void rrb(t_stack *b, t_config *config)
 {
+	if (!b->top || !b->top->next)
+		return ;
 	reverse_rotate(b);
 	if (!config->checker)
 	{
@@ -50,6 +54,8 @@ void rrb(t_stack *b, t_config *config)
 }
 void rrr(t_stack *a, t_stack *b, t_config *config)
 {
+	if ((!a->top || !a->top->next) && (!b->top || !b->top->next))
+		return ;
 	reverse_rotate(a);
 	reverse_rotate(b);
 	if (!config->checker)

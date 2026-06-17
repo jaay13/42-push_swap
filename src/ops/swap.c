@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:03:24 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 17:03:54 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 19:48:02 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void swap(t_stack *stack);
 
 void sa(t_stack *a, t_config *config)
 {
+	if (!a->top || !a->top->next)
+		return ;
     swap(a);
 	if (!config->checker)
 	{
@@ -39,6 +41,8 @@ void sa(t_stack *a, t_config *config)
 
 void sb(t_stack *b, t_config *config)
 {
+	if (!b->top || !b->top->next)
+		return ;
     swap(b);
 	if (!config->checker)
 	{
@@ -50,6 +54,8 @@ void sb(t_stack *b, t_config *config)
 
 void ss(t_stack *a, t_stack *b, t_config *config)
 {
+	if ((!a->top || !a->top->next) && (!b->top || !b->top->next))
+		return ;
     swap(a);
     swap(b);
 	if (!config->checker)
@@ -66,7 +72,7 @@ static void swap(t_stack *stack)
 	t_node *node2;
 	t_node *node3;
 												// eg.: TOP/NULL <-> [1] <-> [2] <-> [3] <-> BOTTOM/NULL
-	if (!stack->top || !stack->top->next)		// checks if stack is empty, or has only one node
+	if (!stack->top || !stack->top->next)		// checks if stack is empty, or has only one node, needed for ss if only one stack is empty or has one node
 		return ;
 	node1 = stack->top;							// node1 points to stack top node [1]
 	node2 = node1->next;						// node2 points to [2]
