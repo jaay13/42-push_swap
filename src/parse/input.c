@@ -19,6 +19,7 @@ static void config_init(t_config *config)
 	config->strategy_picked = false;
 	config->adaptive = false;
 	config->bench = false;
+	config->checker = false;
 	config->tokens = NULL;
 	config->disorder = 0.0f;
 	config->total_ops = 0;
