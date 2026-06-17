@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:05:56 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 15:40:53 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 15:52:31 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,14 @@ void	execute_input_operation(t_stack *a, t_stack *b, t_config *config, char *lin
 		rrr(a, b, config);
 	else
 		checker_error_n_free(a, b, config, line);
+}
+
+void	checker_error_n_free(t_stack *a, t_stack *b, t_config *config, char *line)
+{
+	free(line);
+	free_stack(a);
+	free_stack(b);
+	free_str_array(config->tokens);
+	ft_printf_fd(2, "Error\n");
+	exit(1);
 }
