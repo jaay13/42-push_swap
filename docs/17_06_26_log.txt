@@ -1,0 +1,24 @@
+./push_swap --bench 1 2 3
+nothing
+
+is this a problem should I maybe still print bench?
+The optional benchmark mode (--bench) ***must***!! display, after sorting:
+◦ The computed disorder (% with two decimals).
+◦ The name of the strategy used and its theoretical complexity class.
+◦ The total number of operations.
+◦ The count of each operation type (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb,
+rrr).
+The benchmark output must be sent to stderr and only appear when the flag is
+present.
+
+SO i guess even if 0
+
+./push_swap --bench 1 2 3 2>bench.txt
+empty bench.txt ...
+
+but should be: 
+[bench] disorder: 0.00%
+[bench] strategy: Simple / O(n²)
+[bench] total ops: 0
+[bench] sa: 0 sb: 0 ss: 0 pa: 0 pb: 0
+[bench] ra: 0 rb: 0 rr: 0 rra: 0 rrb: 0 rrr: 0
