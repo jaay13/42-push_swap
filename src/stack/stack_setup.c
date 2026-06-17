@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 16:59:18 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/14 16:22:18 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/17 20:14:11 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ void	build_stack(t_stack *stack, t_config *config)
 		if (!new_node)
 		{
 			free_stack(stack);
-			return ;
+			free_str_array(config->tokens);
+			ft_printf_fd(2, "Error\n");
+			exit(1);
 		}
 		nbr = ft_atoi(config->tokens[i]);
 		new_node->value = nbr;
