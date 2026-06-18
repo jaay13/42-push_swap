@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 16:21:57 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/18 13:14:44 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 15:42:19 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	bring_min_to_top_of(t_stack *a, t_config *config)
 		current = current->next;
 	}
 	if (min_value_index <= a->size / 2)
-		ra(a, config);
+		while (a->top->value != min_value)
+			ra(a, config);
 	else
 		while (a->top->value != min_value)
 			rra(a, config);
