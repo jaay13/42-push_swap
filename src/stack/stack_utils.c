@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 16:21:57 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/16 14:47:46 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 13:14:13 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ void	bring_max_to_top_of(t_stack *b, t_config *config)
 	int	max_value;
 	int	max_value_index;
 	int	i;
-
-	if (!b || !b->top)
-		return ;
+	
 	current = b->top;
 	max_value = current->value;
 	max_value_index = 0;
