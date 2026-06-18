@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/18 13:58:15 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 14:30:36 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 #include "../inc/push_swap.h"
 
 static void	push_chunks_to_b(t_stack *a, t_stack *b, t_config *config);
-static void	push_max_values_back_to_a(t_stack *a, t_stack *b, t_config *config);
 
 void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 {
@@ -43,7 +42,11 @@ void	medium_sort(t_stack *a, t_stack *b, t_config *config)
 	{
 		rank_stack_values_of(a, config);
 		push_chunks_to_b(a, b, config);
-		push_max_values_back_to_a(a, b, config);
+		while (b->top)
+		{
+			bring_max_to_top_of(b, config);
+			pa(a, b, config);
+		}
 	}
 }
 
@@ -54,7 +57,6 @@ static void	push_chunk_value_to_b(t_stack *a, t_stack *b, t_config *config,
 
 	top_value = a->top->value;
 	pb(a, b, config);
-	chunk->mid = (chunk->start + chunk->end) / 2;
 	if (chunk->mid >= top_value && b->size > 1)
 		rb(b, config);
 	chunk->pushed++;
@@ -66,6 +68,7 @@ static void	update_chunk(t_chunk *chunk)
 	chunk->end += chunk->size;
 	if (chunk->end >= chunk->total)
 		chunk->end = chunk->total - 1;
+	chunk->mid = (chunk->start + chunk->end) / 2;
 }
 
 static void	push_chunks_to_b(t_stack *a, t_stack *b, t_config *config)
@@ -76,6 +79,7 @@ static void	push_chunks_to_b(t_stack *a, t_stack *b, t_config *config)
 	chunk.size = (int)sqrt(chunk.total) * 3;
 	chunk.start = 0;
 	chunk.end = chunk.size - 1;
+	chunk.mid = (chunk.start + chunk.end) / 2;
 	while (a->top)
 	{
 		chunk.count = chunk.end - chunk.start + 1;
@@ -88,14 +92,5 @@ static void	push_chunks_to_b(t_stack *a, t_stack *b, t_config *config)
 				ra(a, config);
 		}
 		update_chunk(&chunk);
-	}
-}
-
-static void	push_max_values_back_to_a(t_stack *a, t_stack *b, t_config *config)
-{
-	while (b->top)
-	{
-		bring_max_to_top_of(b, config);
-		pa(a, b, config);
 	}
 }
