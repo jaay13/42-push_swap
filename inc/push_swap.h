@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 20:18:14 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 14:19:21 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,18 @@ typedef struct s_stack 			// A stack (a or b) made of linked nodes
 	t_node *top;    			// Pointer to the top of the stack
 	t_node *bottom; 			// Pointer to the bottom of the stack
 }		t_stack;
+
+
+typedef struct s_chunk
+{
+	int	size;					// Width of each chunk
+	int	start;					// First rank in the current chunk
+	int	end;					// Last rank in the current chunk
+	int	mid;					// Middle rank of the current chunk
+	int	pushed;					// Values pushed from the current chunk
+	int	count;					// Total values in the current chunk
+	int	total;					// Original number of values
+}	t_chunk;
 
 typedef struct s_config			// Stores parsing results, strategy choosen, bench counters
 {
