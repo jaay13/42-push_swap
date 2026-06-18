@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/18 14:30:36 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 19:45:08 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	push_chunks_to_b(t_stack *a, t_stack *b, t_config *config)
 	t_chunk	chunk;
 
 	chunk.total = a->size;
-	chunk.size = (int)sqrt(chunk.total) * 3;
+	chunk.size = ft_int_sqrt(chunk.total) * 3;
 	chunk.start = 0;
 	chunk.end = chunk.size - 1;
 	chunk.mid = (chunk.start + chunk.end) / 2;

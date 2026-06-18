@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 11:47:26 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/18 13:10:52 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 19:50:46 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,18 @@ long	ft_atol(const char *str)
 		i++;
 	}
 	return (result * symbol);
+}
+
+int	ft_int_sqrt(int number)
+{
+	int	root;
+
+	if (number == 0 || number < 0)
+		return (0);
+	if (number == 1)
+		return (1);
+	root = 0;
+	while (root + 1 <= number / (root + 1))
+		root++;
+	return (root);
 }

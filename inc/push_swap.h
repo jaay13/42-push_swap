@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:53:51 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/18 14:19:21 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 19:45:30 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdbool.h> 			// true, false, readability
 # include <stdlib.h>  			// malloc, free, exit
 # include <unistd.h>  			// write
-# include <math.h>				// sqrt
 
 enum	e_strategy
 {
@@ -121,6 +120,7 @@ long	ft_atol(const char *str);
 int		syntax_error(char *token);
 int 	repetition_error(long nbr, int *nums, int i);
 void	rank_stack_values_of(t_stack *a, t_config *config);
+int		ft_int_sqrt(int number);
 
 /* ---------------	BENCH	--------------- */
 void	compute_disorder(t_stack *a, t_config *config);
