@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 17:22:52 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/13 13:34:29 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/18 14:12:28 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdint.h>
 
 /* ---------------	CHARS	--------------- */
 int					ft_isalnum(int c);
@@ -82,11 +82,11 @@ int					ft_lstsize(t_list *lst);
 
 /* ---------------	FT_PRINTF	--------------- */
 
-int	ft_printf(const char *format, ...);
-int ft_printf_fd(int fd, const char *format, ...);
+int					ft_printf(const char *format, ...);
+int					ft_printf_fd(int fd, const char *format, ...);
 
 /* ---------------	GET_NEXT_LINE	--------------- */
 
-char	*get_next_line(int fd);
+char				*get_next_line(int fd);
 
 #endif
