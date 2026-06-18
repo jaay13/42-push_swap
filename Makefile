@@ -58,7 +58,7 @@ CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -lm -o $(NAME)
 
 bonus: $(BONUS_NAME)
 
