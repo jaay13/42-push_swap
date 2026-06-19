@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 11:47:26 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/19 12:12:03 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/19 12:16:14 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_int_sqrt(int number)
 {
 	int	root;
 
-	if (number == 0 || number < 0)
+	if (number <= 0)
 		return (0);
 	if (number == 1)
 		return (1);
