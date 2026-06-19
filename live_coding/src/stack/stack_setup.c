@@ -38,7 +38,7 @@ void	build_stack(t_stack *stack, t_config *config)
 			ft_printf_fd(2, "Error\n");
 			exit(1);
 		}
-		nbr = ft_atoi(config->tokens[i]);
+		nbr = (int)ft_atol(config->tokens[i]);
 		new_node->value = nbr;
 		append_node(stack, new_node);
 		i++;
