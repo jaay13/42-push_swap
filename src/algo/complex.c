@@ -6,7 +6,7 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:54:11 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/17 20:18:01 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/19 12:20:19 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ repeat for next bit
 after last bit, stack a is sorted
 
 */
-
-//TODO refactor complex sort to adhere to norm
 
 #include "../inc/push_swap.h"
 
