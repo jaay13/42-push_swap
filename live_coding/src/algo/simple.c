@@ -2,17 +2,13 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+#+#+#+#+#+   +#+           */
-/*   By: jakoch <jakoch@student.42.fr>              +#+  +#+#+#+#+#+  
-	+#+           */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 13:31:00 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/10 13:31:00 by jakoch           ###   ########.fr       */
+/*   Created: 2026/06/19 12:19:40 by jakoch            #+#    #+#             */
+/*   Updated: 2026/06/19 12:20:07 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../inc/push_swap.h"
 
 /*
 
@@ -27,6 +23,8 @@
 	Push everything back
 
 */
+
+#include "../inc/push_swap.h"
 
 void	simple_sort(t_stack *a, t_stack *b, t_config *config)
 {
