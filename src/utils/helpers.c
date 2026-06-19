@@ -6,21 +6,44 @@
 /*   By: jakoch <jakoch@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 11:47:26 by jakoch            #+#    #+#             */
-/*   Updated: 2026/06/18 19:51:20 by jakoch           ###   ########.fr       */
+/*   Updated: 2026/06/19 12:12:03 by jakoch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+static long	convert_digits(const char *str, int i, int symbol)
+{
+	long	result;
+	long	limit;
+	int		digit;
+
+	result = 0;
+	limit = INT_MAX;
+	if (symbol < 0)
+		limit = -(long)INT_MIN;
+	while (ft_isdigit(str[i]))
+	{
+		digit = str[i] - '0';
+		if (result > (limit - digit) / 10)
+		{
+			if (symbol < 0)
+				return (LONG_MIN);
+			return (LONG_MAX);
+		}
+		result = result * 10 + digit;
+		i++;
+	}
+	return (result * symbol);
+}
+
 long	ft_atol(const char *str)
 {
-	int		i;
-	int		symbol;
-	long	result;
+	int	i;
+	int	symbol;
 
 	i = 0;
 	symbol = 1;
-	result = 0;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -29,12 +52,7 @@ long	ft_atol(const char *str)
 			symbol = -symbol;
 		i++;
 	}
-	while (ft_isdigit(str[i]))
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result * symbol);
+	return (convert_digits(str, i, symbol));
 }
 
 int	ft_int_sqrt(int number)
