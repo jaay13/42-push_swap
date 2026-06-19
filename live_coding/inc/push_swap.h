@@ -15,7 +15,6 @@
 
 # include "../libft/libft.h"
 # include <limits.h>
-# include <math.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -122,6 +121,7 @@ long				ft_atol(const char *str);
 int					syntax_error(char *token);
 int					repetition_error(long nbr, int *nums, int i);
 void				rank_stack_values_of(t_stack *a, t_config *config);
+int					ft_int_sqrt(int number);
 
 /* ---------------	BENCH	--------------- */
 void				compute_disorder(t_stack *a, t_config *config);

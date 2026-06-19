@@ -47,9 +47,9 @@ void	pb(t_stack *a, t_stack *b, t_config *config)
 	{
 		config->total_ops++;
 		config->pb++;
+		if (!config->count_only)
+			ft_printf("pb\n");
 	}
-	if (!config->count_only)
-		ft_printf("pb\n");
 }
 
 static void	push(t_stack *src, t_stack *dst)

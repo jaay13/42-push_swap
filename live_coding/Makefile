@@ -58,7 +58,7 @@ CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -lm -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 bonus: $(BONUS_NAME)
 
@@ -80,11 +80,5 @@ fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
-
-test:
-	./$(NAME) 4 1 3 2
-
-count:
-	./$(NAME) 4 1 3 2 | wc -l
 
 .PHONY: all bonus clean fclean re test count
